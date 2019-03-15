@@ -91,9 +91,13 @@ CPU型号:Xeon E3 核数:4 内存:32G 硬盘:机械1T+128G SSD  操作系统:cen
 ![Docker](project-information/docker.gif)  
 2)所有可执行的dubbo服务jar放到服务器相关目录，并创建shell启停脚本，参考dubbo-capital-buyer-service.sh；运行dubbo-capital-buyer-service.sh statrt|stop 完成启停；  
 3)增加oracle process数量，增加redo大小，可参考网上命令；  
-4)调整centos参数
+4)调整centos参数  
 echo 30 > /proc/sys/net/ipv4/tcp_fin_timeout(调低端口释放后的等待时间， 默认为60s， 修改为15~30s)  
 echo 1 > /proc/sys/net/ipv4/tcp_tw_reuse(默认为0， 修改为1， 释放TIME_WAIT端口给新连接使用)  
 echo 1 > /proc/sys/net/ipv4/tcp_tw_recycle(快速回收socket资源，  默认为0， 修改为1)  
-
+### 压力测试
+说明:  
+实时交易系统数据提交比较频繁即硬盘IOPS会比较高，普通机械硬盘IOPS约为160左右基本无法压测，建议使用SSD，测试比对数据如下:  
+![sata](project-information/sata.gif)iops为169，使用率:98.8%  
+![ssd](project-information/ssd.gif)iops为，使用率:%   
 
