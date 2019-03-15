@@ -84,7 +84,16 @@ update订单状态时需根据全局ID(GTID)、状态作为条件，然后判断
 ##### 4、可靠消息服务
 主要用于增加用户积分，具体流程如下:
 ![可靠消息流程](project-information/message.gif)
-### 测试、部署
-1)因测试资源有限，redis、rabbitmq、zookeeper所有Oracle数据库均由Docker容器构建，可参考网上相关命令。  
-![Docker](project-information/docker.gif)
-2)
+### 部署
+1)测试机配置:  
+CPU型号:Xeon E3 核数:4 内存:32G 硬盘:机械1T+128G SSD  操作系统:centos 7.6  
+1)redis、rabbitmq、zookeeper所有Oracle数据库均由Docker容器构建，并将ssd硬盘mount到docker目录下，可参考网上相关命令；    
+![Docker](project-information/docker.gif)  
+2)所有可执行的dubbo服务jar放到服务器相关目录，并创建shell启停脚本，参考dubbo-capital-buyer-service.sh；运行dubbo-capital-buyer-service.sh statrt|stop 完成启停；  
+3)增加oracle process数量，增加redo大小，可参考网上命令；  
+4)调整centos参数
+echo 30 > /proc/sys/net/ipv4/tcp_fin_timeout(调低端口释放后的等待时间， 默认为60s， 修改为15~30s)  
+echo 1 > /proc/sys/net/ipv4/tcp_tw_reuse(默认为0， 修改为1， 释放TIME_WAIT端口给新连接使用)  
+echo 1 > /proc/sys/net/ipv4/tcp_tw_recycle(快速回收socket资源，  默认为0， 修改为1)  
+
+
