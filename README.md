@@ -86,5 +86,5 @@ update订单状态时需根据全局ID(GTID)、状态作为条件，然后判断
 ![可靠消息流程](project-information/message.gif)
 ### 测试、部署
 1)因测试资源有限，redis、rabbitmq、zookeeper所有Oracle数据库均由Docker容器构建，可参考网上相关命令。  
-![Docker](project-information/docker.jpg)
+![Docker](project-information/docker.gif)
 2)
