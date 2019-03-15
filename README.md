@@ -73,7 +73,7 @@ Easyui | 前端框架  | [http://www.jeasyui.com/index.php](http://www.jeasyui.c
 秒杀成功后需要扣减商品库存、生成商品订单、支付记录，这些功能均为独立服务、数据库并且要在同一事务中，用tcc-transaction框架来保障分布式事务一致性；
 #### 分布式支付业务
 场景：用户用余额支付订单，成功后需更新订单状态、更新支付记录状态、商家加款、买家扣款、增加用户积分而这些服务、数据库均为分布式应用，需要用分布式事务来保证最终一致。 
-![订单支付流程](Distributed-Seckill/payment.jpg)
+![订单支付流程](project-information/payment.jpg)
 ##### 1、tcc框架
 ##### 2、可靠消息服务
 ##### 3、
