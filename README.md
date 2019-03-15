@@ -54,25 +54,32 @@ Easyui | 前端框架  | [http://www.jeasyui.com/index.php](http://www.jeasyui.c
 ##### 2、可根据需要制定不同秒杀策略
 利用Redis，实现了队列、乐观锁、分布式事务锁三种策略，每个秒杀活动均可选择任意一种，测试高并发环境下这三种策略性能，便于应用到后续项目中。
 ##### 3、实现LocalCahce
-1)用ConcurrentHashMap来做本地缓存，缓存对象为SoftReference，避免内存溢出；
-2)用DelayQueue来实现缓存有效时间，及时清除过期过期缓存；
+1)用ConcurrentHashMap来做本地缓存，缓存对象为SoftReference，避免内存溢出；  
+2)用DelayQueue来实现缓存有效时间，及时清除过期过期缓存；  
 ##### 4、页面静态化、对象缓存、秒杀结果缓存
 1)所有页面均为Html，所需动态数据是通过接口从服务端获取，实现前后端分离； 
-2)需要频繁查询的对象，如商品详情等可缓存到LocalCahce中，减少对数据库的访问；
-3)用LocalCahce缓存商品秒杀结束标志，如果LocalCahce中没有在去Redis中查找，减少对Redis访问；
+2)需要频繁查询的对象，如商品详情等可缓存到LocalCahce中，减少对数据库的访问； 
+3)用LocalCahce缓存商品秒杀结束标志，如果LocalCahce中没有在去Redis中查找，减少对Redis访问；  
 ##### 5、利用Redis实现"限流"
 制定秒杀活动后按策略将库存缓存至redis中，只容许秒杀成功的用户进入数据库下单；
 ##### 6、用消息中间件实现“削峰”
 活动秒杀资格后的商品订单均通过消息发送到RabbitqMq中异步执行；
 ##### 7、解决重复下单、超卖
 1)成功获得秒杀资格的用户在Redis中缓存，如果存在的直接返回，建立订单表字段:“商品ID+用户ID”唯一索引，来保障无重复下单； 
-2)更新库存时，利用数据库行锁判在更新条件中判断库存大于0，根据返回行数来判断是否成功；
+2)更新库存时，利用数据库行锁判在更新条件中判断库存大于0，根据返回行数来判断是否成功； 
 ##### 8、JSR303参数校验、全局异常处理
 分别用Hibernate validation、springmvc注解@ControllerAdvice实现；
 ##### 9、微服务、分布式
 秒杀成功后需要扣减商品库存、生成商品订单、支付记录，这些功能均为独立服务、数据库并且要在同一事务中，用tcc-transaction框架来保障分布式事务一致性；
 #### 分布式支付业务
 场景：用户用余额支付订单，成功后需更新订单状态、更新支付记录状态、商家加款、买家扣款、增加用户积分而这些服务、数据库均为分布式应用，需要用分布式事务来保证最终一致。 
+![订单支付流程](project-information/payment.jpg)
 ##### 1、tcc框架
-##### 2、可靠消息服务
-##### 3、
+采用github上收藏最多的tcc-transaction框架，主要用于更新支付记录、商家加款、买家扣款；
+##### 2、重复支付
+update订单状态时需根据全局ID(GTID)、状态作为条件，然后判断更新返回行数是否等于1，如果为0则订单已支付；
+##### 3、谈谈悲观锁、乐观锁、数据库行锁
+支付中买家扣款可用数据库悲观锁for update锁定所在行在进行业务处理、更新记录，也可直接利用数据库行锁直接update记录，例如"update CapitalAccount set balance=balance-:tradeAmount,balance_frozen=balance_frozen+:tradeAmount where user_id=:userid and balance>=:tradeAmount"，建议使用行锁提高性能；买家账户也可使用乐观锁，但商家账户不建议使用乐观锁，所有订单对应一条商家记录，更新冲突频率太高会降低性能；
+##### 4、可靠消息服务
+主要用于增加用户积分，具体流程如下:
+![可靠消息流程](project-information/message.jpg)
