@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+            http://www.springframework.org/schema/beans/spring-beans.xsd  
+            http://code.alibabatech.com/schema/dubbo  
+            http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	<!-- 提供方应用信息，用于计算依赖关系 -->
+	<dubbo:application name="jecp-dubbo-trade"/>
+
+    <!-- 使用zookeeper注册中心暴露服务地址,register是否注册,subscribe是否订阅，session注册中心会话超时时间(毫秒),
+    	timeout注册中心请求超时时间(毫秒),file文件缓存注册中心地址列表及服务提供者列表  -->
+    <dubbo:registry id="tradeZk" protocol="zookeeper" register="true" subscribe="true"
+                    address="${dubbo.registry.address}" session="${dubbo.registry.session}"
+                    timeout="${dubbo.registry.timeout}" file="./.dubbo/rpc-cache" />
+
+    <dubbo:protocol name="dubbo" port="${dubbo.port}" threadpool="${dubbo.provider.threadpool}" threads="${dubbo.provider.threads}" accepts="${dubbo.provider.accepts}"/>
+
+    <dubbo:service interface="com.jecp.trade.record.api.TradeRecordApi" registry="tradeZk"
+                   ref="tradeRecordApiImpl" retries="0" timeout="${dubbo.provider.timeout}" validation="true" />
+
+</beans>  

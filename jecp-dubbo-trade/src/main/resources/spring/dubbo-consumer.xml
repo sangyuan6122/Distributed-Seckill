@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+            http://www.springframework.org/schema/beans/spring-beans.xsd  
+            http://code.alibabatech.com/schema/dubbo  
+            http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<!-- 买家资金账户服务接口 -->
+	<dubbo:reference interface="com.jecp.capital.buyer.api.CapitalBuyerAccountHisApi" registry="tradeZk" id="capitalBuyerAccountHisApi" check="false">
+	</dubbo:reference>
+	<!-- 商家资金账户服务接口 -->
+	<dubbo:reference interface="com.jecp.capital.seller.api.CapitalSellerAccountHisApi" registry="tradeZk" id="capitalSellerAccountHisApi" check="false">
+		<dubbo:method name="debit" async="true"/>
+		<dubbo:method name="credit" async="true"/>
+	</dubbo:reference>
+	<!-- 可靠消息服务服务接口 -->
+	<dubbo:reference interface="com.jecp.message.api.ReliableMessageApi" registry="tradeZk" id="reliableMessageApi" check="false">
+		<dubbo:method name="messageConfirm" async="true" sent="false" return="false"/>
+	</dubbo:reference>
+</beans>  
