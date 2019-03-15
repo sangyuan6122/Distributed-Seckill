@@ -24,6 +24,11 @@ import com.jecp.trade.record.model.TradeRecord;
 import com.jecp.trade.record.service.impl.TradeRecordServiceImpl;
 import com.rabbitmq.client.Channel;
 
+/**
+ * @Title 监听积分消息回查队列
+ * @author WWT
+ * @date 2018年6月21日
+ */
 @Component
 @Lazy(false)
 public class TradeRecordListener {

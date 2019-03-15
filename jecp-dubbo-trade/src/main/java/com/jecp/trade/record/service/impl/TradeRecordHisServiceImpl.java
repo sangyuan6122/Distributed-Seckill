@@ -11,6 +11,11 @@ import com.jecp.base.service.impl.BaseServiceImpl;
 import com.jecp.trade.record.dao.TradeRecordHisDao;
 import com.jecp.trade.record.model.TradeRecordHis;
 
+/**
+ * @Title 交易历史服务
+ * @author WWT
+ * @date 2018年6月21日
+ */
 @Service
 public class TradeRecordHisServiceImpl extends BaseServiceImpl<TradeRecordHis> {
 	private static final Logger log = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);

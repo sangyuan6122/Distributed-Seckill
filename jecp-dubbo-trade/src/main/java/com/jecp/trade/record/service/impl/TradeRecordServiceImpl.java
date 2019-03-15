@@ -33,7 +33,7 @@ import com.jecp.trade.record.model.TradeRecord;
 /**
  * @Title 交易服务
  * @author WWT
- * @date 2018年8月28日
+ * @date 2018年6月21日
  */
 @Service
 public class TradeRecordServiceImpl extends BaseServiceImpl<TradeRecord> {

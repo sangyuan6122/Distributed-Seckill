@@ -16,7 +16,11 @@ import org.springframework.context.annotation.Scope;
 
 import com.jecp.capital.point.enums.AccountPointQueueEnum;
 
-
+/**
+ * @Title RabbitMq配置
+ * @author WWT
+ * @date 2018年6月21日
+ */
 @Configuration
 public class RabbitConfig {
 	@Value("${rabbitmq.host}")

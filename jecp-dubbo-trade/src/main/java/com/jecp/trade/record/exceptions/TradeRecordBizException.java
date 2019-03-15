@@ -2,6 +2,11 @@ package com.jecp.trade.record.exceptions;
 
 import com.jecp.exceptions.BizException;
 
+/**
+ * @Title 支付记录异常类
+ * @author WWT
+ * @date 2018年6月21日
+ */
 public class TradeRecordBizException extends BizException{
 
 	private static final long serialVersionUID = 3283838835160546593L;
