@@ -1,0 +1,37 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+  	<parent>
+	    <groupId>com.jecp</groupId>
+	    <artifactId>jecp-parent</artifactId>
+	    <version>0.0.1-SNAPSHOT</version>
+  	</parent>
+  	<groupId>com.jecp</groupId>
+  	<artifactId>jecp-dubbo-trade-api</artifactId>
+  	<version>${jecp.dubbo.trade.version}</version>
+  	<dependencies>
+  		<dependency>
+			<groupId>org.mengyun</groupId>
+			<artifactId>tcc-transaction-api</artifactId>			
+		</dependency>
+		<dependency>
+			<groupId>com.jecp</groupId>
+		  	<artifactId>jecp-dubbo-capital-buyer-api</artifactId>
+		  	<version>${jecp.dubbo.capital.buyer.version}</version>			
+		</dependency>
+		<dependency>
+			<groupId>com.jecp</groupId>
+		  	<artifactId>jecp-dubbo-capital-seller-api</artifactId>
+		  	<version>${jecp.dubbo.capital.seller.version}</version>			
+		</dependency>	
+		<dependency>
+			<groupId>com.jecp</groupId>
+		  	<artifactId>jecp-dubbo-capital-point-api</artifactId>
+		  	<version>${jecp.dubbo.point.version}</version>			
+		</dependency>	
+  		<dependency>
+			<groupId>com.jecp</groupId>
+		    <artifactId>jecp-common-core</artifactId>
+		    <version>${jecp.common.core.version}</version>
+		</dependency>
+  	</dependencies>
+</project>
