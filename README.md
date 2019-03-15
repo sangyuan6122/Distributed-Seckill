@@ -75,7 +75,8 @@ Easyui | 前端框架  | [http://www.jeasyui.com/index.php](http://www.jeasyui.c
 场景：用户用余额支付订单，成功后需更新订单状态、更新支付记录状态、商家加款、买家扣款、增加用户积分而这些服务、数据库均为分布式应用，需要用分布式事务来保证最终一致。 
 ![订单支付流程](project-information/payment.jpg)
 ##### 1、tcc框架
-采用github上收藏最多的tcc-transaction框架，主要用于更新支付记录、商家加款、买家扣款；
+1)采用github上收藏最多的tcc-transaction框架，主要用于更新支付记录、商家加款、买家扣款；  
+2)tcc-transaction在执行时try阶段为串行，confirm、cancel为并行，可根据需要开启Dubbo异步调用让try阶段也为并行；
 ##### 2、重复支付
 update订单状态时需根据全局ID(GTID)、状态作为条件，然后判断更新返回行数是否等于1，如果为0则订单已支付；
 ##### 3、谈谈悲观锁、乐观锁、数据库行锁
@@ -83,3 +84,7 @@ update订单状态时需根据全局ID(GTID)、状态作为条件，然后判断
 ##### 4、可靠消息服务
 主要用于增加用户积分，具体流程如下:
 ![可靠消息流程](project-information/message.gif)
+### 测试、部署
+1)因测试资源有限，redis、rabbitmq、zookeeper所有Oracle数据库均由Docker容器构建，可参考网上相关命令。  
+![Docker](project-information/docker.jpg)
+2)
