@@ -82,4 +82,4 @@ update订单状态时需根据全局ID(GTID)、状态作为条件，然后判断
 支付中买家扣款可用数据库悲观锁for update锁定所在行在进行业务处理、更新记录，也可直接利用数据库行锁直接update记录，例如"update CapitalAccount set balance=balance-:tradeAmount,balance_frozen=balance_frozen+:tradeAmount where user_id=:userid and balance>=:tradeAmount"，建议使用行锁提高性能；买家账户也可使用乐观锁，但商家账户不建议使用乐观锁，所有订单对应一条商家记录，更新冲突频率太高会降低性能；
 ##### 4、可靠消息服务
 主要用于增加用户积分，具体流程如下:
-![可靠消息流程](project-information/message.jpg)
+![可靠消息流程](project-information/message.gif)
