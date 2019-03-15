@@ -95,6 +95,7 @@ CPU型号:Xeon E3 核数:4 内存:32G 硬盘:机械1T+128G SSD  操作系统:cen
 echo 30 > /proc/sys/net/ipv4/tcp_fin_timeout(调低端口释放后的等待时间， 默认为60s， 修改为15~30s)  
 echo 1 > /proc/sys/net/ipv4/tcp_tw_reuse(默认为0， 修改为1， 释放TIME_WAIT端口给新连接使用)  
 echo 1 > /proc/sys/net/ipv4/tcp_tw_recycle(快速回收socket资源，  默认为0， 修改为1)  
+![deploy](project-information/deploy.gif)
 ### 压力测试
 说明:  
 实时交易系统数据提交比较频繁即硬盘IOPS会比较高，普通机械硬盘IOPS约为160左右基本无法压测，建议使用SSD，测试比对数据如下:  
