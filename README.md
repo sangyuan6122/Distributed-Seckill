@@ -97,9 +97,15 @@ echo 1 > /proc/sys/net/ipv4/tcp_tw_reuse(默认为0， 修改为1， 释放TIME_
 echo 1 > /proc/sys/net/ipv4/tcp_tw_recycle(快速回收socket资源，  默认为0， 修改为1)  
 5)部署图  
 ![deploy](project-information/deploy.gif)
-### 压力测试
-说明:  
-实时交易系统数据提交比较频繁即硬盘IOPS会比较高，普通机械硬盘IOPS约为160左右基本无法压测，建议使用SSD，测试比对数据如下:  
-![sata](project-information/sata.gif)iops为169，使用率:98.8%  
-![ssd](project-information/ssd.gif)iops为，使用率:%   
+### Jmeter压力测试
+##### 说明:  
+实时交易系统数据提交比较频繁即硬盘IOPS会比较高，如果用个人PC测试建议使用SSD，械硬盘IOPS约为160左右基本无法压测，测试比对数据如下:  
+![sata](project-information/sata.gif)使用机械硬盘iops为169，使用率:98.8%  
+![ssd](project-information/ssd.gif)换为SSD后iops为，使用率:%   
+##### 秒杀场景:
+场景涉及商品管理、订单管理、支付管理三个服务，测试内容:  
+1)模拟10W用户同时秒杀1000件商品；  
+2)模拟1W用户分别用队列、乐观锁、分布式锁三种策略同时秒杀1W件商品，比对三种策略性能情况；  
+根据测试需求建立秒杀活动
+![ssd](project-information/add_seckill.jpg)
 
