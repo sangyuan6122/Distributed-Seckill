@@ -88,24 +88,31 @@ update订单状态时需根据全局ID(GTID)、状态作为条件，然后判断
 1)测试机配置:  
 CPU型号:Xeon E3 核数:4 内存:32G 硬盘:机械1T+128G SSD  操作系统:centos 7.6  
 1)redis、rabbitmq、zookeeper所有Oracle数据库均由Docker容器构建，并将ssd硬盘mount到docker目录下，可参考网上相关命令；    
-![Docker](project-information/docker.gif)  
-2)所有可执行的dubbo服务jar放到服务器相关目录，并创建shell启停脚本，参考dubbo-capital-buyer-service.sh；运行dubbo-capital-buyer-service.sh statrt|stop 完成启停；  
-3)增加oracle process数量，增加redo大小，可参考网上命令；  
-4)调整centos参数  
+![Docker](project-information/docker.gif) 
+2)修改项目中resources下相关文件中对应ip地址；
+3)jecp-dubbo-shop-web放到服务器tomcat下;  
+4)所有可执行的dubbo服务jar放到服务器相关目录，并创建shell启停脚本，参考dubbo-capital-buyer-service.sh；运行dubbo-capital-buyer-service.sh statrt|stop 完成启停；    
+5)增加oracle process数量，增加redo大小，可参考网上命令；  
+6)调整centos参数  
 echo 30 > /proc/sys/net/ipv4/tcp_fin_timeout(调低端口释放后的等待时间， 默认为60s， 修改为15~30s)  
 echo 1 > /proc/sys/net/ipv4/tcp_tw_reuse(默认为0， 修改为1， 释放TIME_WAIT端口给新连接使用)  
 echo 1 > /proc/sys/net/ipv4/tcp_tw_recycle(快速回收socket资源，  默认为0， 修改为1)  
-5)部署图  
+7)部署图  
 ![deploy](project-information/deploy.gif)
-### Jmeter压力测试
+### 压力测试
 ##### 说明:  
-实时交易系统数据提交比较频繁即硬盘IOPS会比较高，如果用个人PC测试建议使用SSD，械硬盘IOPS约为160左右基本无法压测，测试比对数据如下:  
+1)实时交易系统数据提交比较频繁即硬盘IOPS会比较高，如果用个人PC测试建议使用SSD，械硬盘IOPS约为160左右基本无法压测，测试比对数据如下:  
 ![sata](project-information/sata.gif)使用机械硬盘iops为169，使用率:98.8%  
 ![ssd](project-information/ssd.gif)换为SSD后iops为，使用率:%   
+2)测试工具使用Jmeter;  
+3)生成所有cookie：http://127.0.0.1:8080/jecp/userBuildAllCookies,  
+导出所有交易记录ID:http://127.0.0.1:8080/jecp/trade/record/allTradeId  
 ##### 秒杀场景:
 场景涉及商品管理、订单管理、支付管理三个服务，测试内容:  
 1)模拟10W用户同时秒杀1000件商品；  
 2)模拟1W用户分别用队列、乐观锁、分布式锁三种策略同时秒杀1W件商品，比对三种策略性能情况；  
-根据测试需求建立秒杀活动
-![ssd](project-information/add_seckill.jpg)
-
+建立秒杀活动  
+![example1](project-information/example1.jpg)
+测试10W用户秒杀
+![jmeter1](project-information/jmeter1.png)  
+![jmeter2](project-information/jmeter2.png)  
