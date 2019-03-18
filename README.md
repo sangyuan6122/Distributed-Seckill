@@ -124,3 +124,5 @@ echo 1 > /proc/sys/net/ipv4/tcp_tw_recycle(快速回收socket资源，  默认�
 ![optimistic](project-information/optimistic_10000_200_50.png)  
 使用分布式锁策略，测试结果:  
 ![optimistic](project-information/distributed_10000_200_50.png)  
+总结:200线程并发下分布式秒杀场景吞吐量>3400，秒杀场景三种策略中队列策略性能最好，由于秒杀场景生产订单是异步，测试数据中不能充分体验分布式事务性能，接下来便测试分布式事务。
+##### 分布式事务场景:  
