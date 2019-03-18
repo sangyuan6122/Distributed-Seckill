@@ -109,7 +109,7 @@ echo 1 > /proc/sys/net/ipv4/tcp_tw_recycle(快速回收socket资源，  默认�
 导出所有交易记录ID:http://127.0.0.1:8080/jecp/trade/record/allTradeId  
 ##### 秒杀场景:
 场景涉及商品管理、订单管理、支付管理三个服务，测试内容:  
-1)模拟10W用户同时秒杀1000件商品；  
+1)模拟10W用户同时秒杀1000件商品，测试秒杀业务性能；  
 2)模拟1W用户分别用队列、乐观锁、分布式锁三种策略同时秒杀1W件商品，比对三种策略性能情况；  
 根据测试需求建立秒杀活动:  
 ![example1](project-information/example1.jpg)  
@@ -117,5 +117,10 @@ echo 1 > /proc/sys/net/ipv4/tcp_tw_recycle(快速回收socket资源，  默认�
 ![jmeter1](project-information/jmeter1.png)  
 ![jmeter2](project-information/jmeter2.png)  
 测试结果:  
-![jmeter2](project-information/queue_1000_200_500.png)  
-
+![queue_1000_200_500](project-information/queue_1000_200_500.png)  
+1W用户cookie秒杀1W件商品，使用队列策略，测试结果:  
+![queue_1000_200_50](project-information/queue_1000_200_50.png)  
+使用乐观锁策略，测试结果:  
+![optimistic](project-information/optimistic_10000_200_50.png)  
+使用分布式锁策略，测试结果:  
+![optimistic](project-information/distributed_10000_200_50.png)  
