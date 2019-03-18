@@ -111,8 +111,11 @@ echo 1 > /proc/sys/net/ipv4/tcp_tw_recycle(快速回收socket资源，  默认�
 场景涉及商品管理、订单管理、支付管理三个服务，测试内容:  
 1)模拟10W用户同时秒杀1000件商品；  
 2)模拟1W用户分别用队列、乐观锁、分布式锁三种策略同时秒杀1W件商品，比对三种策略性能情况；  
-建立秒杀活动  
-![example1](project-information/example1.jpg)
-测试10W用户秒杀
+根据测试需求建立秒杀活动:  
+![example1](project-information/example1.jpg)  
+使用10W用户cookie秒杀1000件商品，200线程 500次:  
 ![jmeter1](project-information/jmeter1.png)  
 ![jmeter2](project-information/jmeter2.png)  
+测试结果:  
+![jmeter2](project-information/queue_1000_200_500.png)  
+
