@@ -108,9 +108,10 @@ echo 1 > /proc/sys/net/ipv4/tcp_tw_recycle(快速回收socket资源，  默认�
 3)生成所有cookie：http://127.0.0.1:8080/jecp/userBuildAllCookies,  
 导出所有交易记录ID:http://127.0.0.1:8080/jecp/trade/record/allTradeId  
 ##### 秒杀场景:
-场景涉及商品管理、订单管理、支付管理三个服务，测试内容:  
+场景涉及商品管理、订单管理、支付管理三个服务，商品扣减库存后要生产订单和支付记录，测试内容:  
 1)模拟10W用户同时秒杀1000件商品，测试秒杀业务性能；  
-2)模拟1W用户分别用队列、乐观锁、分布式锁三种策略同时秒杀1W件商品，比对三种策略性能情况；  
+2)模拟1W用户分别用队列、乐观锁、分布式锁三种策略同时秒杀1W件商品，比对三种策略性能情况； 
+3)商品售出量、订单量、支付记录总数是否相等；   
 根据测试需求建立秒杀活动:  
 ![example1](project-information/example1.jpg)  
 使用10W用户cookie秒杀1000件商品，200线程 500次:  
@@ -124,5 +125,10 @@ echo 1 > /proc/sys/net/ipv4/tcp_tw_recycle(快速回收socket资源，  默认�
 ![optimistic](project-information/optimistic_10000_200_50.png)  
 使用分布式锁策略，测试结果:  
 ![optimistic](project-information/distributed_10000_200_50.png)  
-总结:200线程并发下分布式秒杀场景吞吐量>3400，秒杀场景三种策略中队列策略性能最好，由于秒杀场景生产订单是异步，测试数据中不能充分体验分布式事务性能，接下来便测试分布式事务。
+秒杀商品合计31000件，检查订单数量、支付记录数量是否相等，跟商品销售量匹配  
+![seckill_over](project-information/seckill_over.jpg)  
+![trade_record](project-information/trade_record.png)  
+![order](project-information/order.png)  
+总结:订单数量、支付记录数量相等并与商品销售量匹配，200线程并发下分布式秒杀场景吞吐量>3400，秒杀场景三种策略中队列策略性能最好，由于秒杀场景生产订单是异步，测试数据中不能充分体验分布式事务性能，接下来便测试分布式事务。  
 ##### 分布式事务场景:  
+场景涉及订单管理、支付管理、买家资金管理、商家资金管理、积分管理
