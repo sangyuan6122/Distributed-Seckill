@@ -88,24 +88,58 @@ update订单状态时需根据全局ID(GTID)、状态作为条件，然后判断
 1)测试机配置:  
 CPU型号:Xeon E3 核数:4 内存:32G 硬盘:机械1T+128G SSD  操作系统:centos 7.6  
 1)redis、rabbitmq、zookeeper所有Oracle数据库均由Docker容器构建，并将ssd硬盘mount到docker目录下，可参考网上相关命令；    
-![Docker](project-information/docker.gif)  
-2)所有可执行的dubbo服务jar放到服务器相关目录，并创建shell启停脚本，参考dubbo-capital-buyer-service.sh；运行dubbo-capital-buyer-service.sh statrt|stop 完成启停；  
-3)增加oracle process数量，增加redo大小，可参考网上命令；  
-4)调整centos参数  
+![Docker](project-information/docker.gif) 
+2)修改项目中resources下相关文件中对应ip地址；
+3)jecp-dubbo-shop-web放到服务器tomcat下;  
+4)所有可执行的dubbo服务jar放到服务器相关目录，并创建shell启停脚本，参考dubbo-capital-buyer-service.sh；运行dubbo-capital-buyer-service.sh statrt|stop 完成启停；    
+5)增加oracle process数量，增加redo大小，可参考网上命令；  
+6)调整centos参数  
 echo 30 > /proc/sys/net/ipv4/tcp_fin_timeout(调低端口释放后的等待时间， 默认为60s， 修改为15~30s)  
 echo 1 > /proc/sys/net/ipv4/tcp_tw_reuse(默认为0， 修改为1， 释放TIME_WAIT端口给新连接使用)  
 echo 1 > /proc/sys/net/ipv4/tcp_tw_recycle(快速回收socket资源，  默认为0， 修改为1)  
-5)部署图  
+7)部署图  
 ![deploy](project-information/deploy.gif)
-### Jmeter压力测试
+### 压力测试
 ##### 说明:  
-实时交易系统数据提交比较频繁即硬盘IOPS会比较高，如果用个人PC测试建议使用SSD，械硬盘IOPS约为160左右基本无法压测，测试比对数据如下:  
+1)实时交易系统数据提交比较频繁即硬盘IOPS会比较高，如果用个人PC测试建议使用SSD，械硬盘IOPS约为160左右基本无法压测，测试比对数据如下:  
 ![sata](project-information/sata.gif)使用机械硬盘iops为169，使用率:98.8%  
 ![ssd](project-information/ssd.gif)换为SSD后iops为，使用率:%   
+2)测试工具使用Jmeter;  
+3)接口:  
+生成所有cookie：http://127.0.0.1:8080/jecp/userBuildAllCookies   
+导出所有交易记录ID:http://127.0.0.1:8080/jecp/trade/record/allTradeId  
+秒杀接口:http://127.0.0.1:8080/jecp/shop/secKill/secKill  
+支付接口:http://127.0.0.1:8080/jecp/shop/order/pay  
 ##### 秒杀场景:
-场景涉及商品管理、订单管理、支付管理三个服务，测试内容:  
-1)模拟10W用户同时秒杀1000件商品；  
-2)模拟1W用户分别用队列、乐观锁、分布式锁三种策略同时秒杀1W件商品，比对三种策略性能情况；  
-根据测试需求建立秒杀活动
-![ssd](project-information/add_seckill.jpg)
+场景涉及商品管理、订单管理、支付管理三个服务，商品扣减库存后要生产订单和支付记录，测试内容:  
+1)模拟10W用户同时秒杀1000件商品，测试秒杀业务性能；  
+2)模拟1W用户分别用队列、乐观锁、分布式锁三种策略同时秒杀1W件商品，比对三种策略性能情况； 
+3)商品售出量、订单量、支付记录总数是否相等；   
+根据测试需求建立秒杀活动:  
+![example1](project-information/example1.jpg)  
+使用10W用户cookie秒杀1000件商品，200线程 500次:  
+![jmeter1](project-information/jmeter1.png)  
+![jmeter2](project-information/jmeter2.png)  
+测试结果:  
+![queue_1000_200_500](project-information/queue_1000_200_500.png)  
+1W用户cookie秒杀1W件商品，使用队列策略，测试结果:  
+![queue_1000_200_50](project-information/queue_1000_200_50.png)  
+使用乐观锁策略，测试结果:  
+![optimistic](project-information/optimistic_10000_200_50.png)  
+使用分布式锁策略，测试结果:  
+![optimistic](project-information/distributed_10000_200_50.png)  
+秒杀商品合计31000件，检查订单数量、支付记录数量是否相等，跟商品销售量匹配  
+![seckill_over](project-information/seckill_over.jpg) 
+商品剩余量全为0，即卖出合计31000件  
+![trade_record](project-information/trade_record.png)  
+支付记录总量31000条    
+![order](project-information/order.png)  
+订单总量31000条  
+总结:订单数量、支付记录数量相等并与商品销售量匹配，200线程并发下分布式秒杀场景吞吐量>3400，秒杀场景三种策略中队列策略性能最好，由于秒杀场景生产订单是异步，测试数据中不能充分体验分布式事务性能，接下来便测试分布式事务。  
+##### 分布式事务场景:  
+场景涉及订单管理、支付管理、买家资金管理、商家资金管理、积分管理  
+导出所有交易记录ID添加到Jmeter中，测试总量3W条  
+![jmeter_pay_setting](project-information/jmeter_pay_setting.png)
+50线程
+![jmeter_pay_result](project-information/jmeter_pay_result.png)  
 
