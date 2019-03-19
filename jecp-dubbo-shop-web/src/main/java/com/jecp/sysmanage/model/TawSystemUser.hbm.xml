@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2017-12-12 14:56:14 by Hibernate Tools 5.2.6.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property"
+	default-cascade="none" default-lazy="true">
+	<class dynamic-insert="true" dynamic-update="true" mutable="true"
+		name="com.jecp.sysmanage.model.TawSystemUser" optimistic-lock="version"
+		polymorphism="implicit" schema="JECP" select-before-update="false"
+		table="TAW_SYSTEM_USER">
+		<id name="id" type="string">
+			<column length="32" name="ID" />
+			<generator class="uuid.hex" />
+		</id>
+		<property generated="never" lazy="false" name="userid"
+			optimistic-lock="true" type="string" unique="false">
+			<column length="100" name="USERID" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="username"
+			optimistic-lock="true" type="string" unique="false">
+			<column name="USERNAME" />
+		</property>
+		<property generated="never" lazy="false" name="deptid"
+			optimistic-lock="true" type="java.lang.Long" unique="false">
+			<column name="DEPTID" precision="18" scale="0" />
+		</property>
+		<property generated="never" lazy="false" name="deptname"
+			optimistic-lock="true" type="string" unique="false">
+			<column length="100" name="DEPTNAME" />
+		</property>
+		<property generated="never" lazy="false" name="password"
+			optimistic-lock="true" type="string" unique="false">
+			<column name="PASSWORD" />
+		</property>
+		<property generated="never" lazy="false" name="mobile"
+			optimistic-lock="true" type="string" unique="false">
+			<column length="100" name="MOBILE" />
+		</property>
+		<property generated="never" lazy="false" name="accountLocked"
+			optimistic-lock="true" type="string" unique="false">
+			<column length="10" name="ACCOUNT_LOCKED" />
+		</property>
+		<property generated="never" lazy="false" name="failCount"
+			optimistic-lock="true" type="string" unique="false">
+			<column length="100" name="FAIL_COUNT" />
+		</property>
+		<property generated="never" lazy="false" name="weixinid"
+			optimistic-lock="true" type="string" unique="false">
+			<column length="32" name="WEIXINID" />
+		</property>
+		<property generated="never" lazy="false" name="external"
+			optimistic-lock="true" type="java.lang.Boolean" unique="false">
+			<column name="EXTERNAL" precision="1" scale="0" />
+		</property>
+		<property generated="never" lazy="false" name="deleted"
+			optimistic-lock="true" type="java.lang.Boolean" unique="false">
+			<column name="DELETED" precision="1" scale="0" />
+		</property>
+		<property generated="never" lazy="false" name="seq"
+			optimistic-lock="true" type="java.lang.Integer" unique="false">
+			<column name="SEQ" precision="5" scale="0" />
+		</property>
+		<property generated="never" lazy="false" name="remark"
+			optimistic-lock="true" type="string" unique="false">
+			<column name="REMARK" />
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+<script type="text/javascript" src="js/sysmanage/menusetdetail.js"></script>
+<form id="menusetdetailform" method="post" style="margin: 5px">
+	<table width="100%" class="sysmanage-info">
+		<tr>
+			<td bgcolor="#eff7f4">菜单方案名称</td>
+			<td><input id="menuname" name="menuname" class="easyui-textbox"
+				style="width: 200px"
+				data-options="required:true,missingMessage:'请填写！'"> <input
+				name="id" id="id" type="hidden"></td>
+		</tr>
+		<tr>
+			<td bgcolor="#eff7f4">客户端类型</td>
+			<td><input id="clienttype" name="clienttype"
+				style="width: 200px"></td>
+		</tr>
+		<tr>
+			<td bgcolor="#E0ECFF">备注</td>
+			<td><input id="remark" name="remark" class="easyui-textbox"
+				multiline="true" style="width: 200px; height: 60px;"></td>
+		</tr>
+
+		<tr>
+			<td colspan="2" bgcolor="#E0ECFF" align="center"><a
+				id="menusetdetailbtn" href="#" class="easyui-linkbutton"
+				data-options="iconCls:'icon-save'">保存</a></td>
+		</tr>
+	</table>
+</form>

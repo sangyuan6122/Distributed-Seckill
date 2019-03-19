@@ -1,0 +1,4 @@
+#Dubbo Registry Cache
+#Mon Mar 18 15:58:55 CST 2019
+com.jecp.shop.order.api.ShopOrderApi=empty\://10.0.0.3\:20887/com.jecp.shop.order.api.ShopOrderApi?accepts\=6000&anyhost\=true&application\=jecp-dubbo-shop-order&category\=configurators&check\=false&default.proxy\=tccJavassist&dubbo\=2.6.2&generic\=false&interface\=com.jecp.shop.order.api.ShopOrderApi&methods\=list&pid\=12260&proxy\=javassist&retries\=0&side\=provider&threadpool\=fixed&threads\=3000&timeout\=60000&timestamp\=1552895935877&validation\=true
+com.jecp.shop.order.api.ShopOrderHisApi=empty\://10.0.0.3\:20887/com.jecp.shop.order.api.ShopOrderHisApi?accepts\=6000&anyhost\=true&application\=jecp-dubbo-shop-order&category\=configurators&check\=false&default.proxy\=tccJavassist&dubbo\=2.6.2&generic\=false&interface\=com.jecp.shop.order.api.ShopOrderHisApi&methods\=createOrder&pid\=12260&retries\=0&side\=provider&threadpool\=fixed&threads\=3000&timeout\=60000&timestamp\=1552895934643&validation\=true

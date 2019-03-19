@@ -1,0 +1,47 @@
+<script type="text/javascript" src="js/sysmanage/assigndetail.js"></script>
+<div class="sysmanage-edit-menu">
+	<div style="padding: 5px;">
+		<b style="line-height: 26px;">分配菜单权限:</b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选择左侧未分配菜单方案具体项后点击添加按钮为已选择部门或人员分配权限菜单。<br>
+		<b style="line-height: 26px;">删除菜单权限:</b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选择右侧已分配菜单方案具体项后点击删除按钮为已选择部门或人员分配权限菜单。<br>
+		<br> 分配对象:<input id="ownername" name="ownername"
+			style="width: 162px"> <br>
+	</div>
+	<div class="sysmanage-left-box">
+		<form id="assigndetailform1" method="post">
+			<input name="owner" id="owner" type="hidden"> <input
+				name="type" id="type" type="hidden"> <input name="menuid"
+				id="menuid" type="hidden"> <input name="menuname"
+				id="menuname" type="hidden">
+		</form>
+		<div id="assigndetailpanel1" style="padding: 1px;"></div>
+	</div>
+	<div class="sysmanage-center-box">
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<a id="assigndetailbtn1" href="#"
+			class="easyui-linkbutton save-btn-long"
+			style="outline: none; margin: 0 10px;"
+			data-options="iconCls:'icon-redo'"></a> <br>
+		<br>
+		<br>
+		<br>
+		<a id="assigndetailbtn2" href="#"
+			class="easyui-linkbutton save-btn-long"
+			style="outline: none; margin: 0 10px;"
+			data-options="iconCls:'icon-remove'"></a>
+	</div>
+	<div class="sysmanage-right-box">
+		<div id="assigndetailpanel2" style="padding: 1px;"></div>
+	</div>
+</div>

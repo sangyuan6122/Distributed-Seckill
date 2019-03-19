@@ -1,0 +1,50 @@
+<script type="text/javascript" src="js/sysmanage/userdetail.js"></script>
+<div id='userDetail' class="sysmanage-help-box">
+	<form id="userform" method="post">
+		<table class="sysmanage-table">
+			<tr>
+				<td>登陆ID:</td>
+				<td><input id="userid" name="userid" class="easyui-textbox"
+					style="width: 200px;"></input> <input id="id" name="id"
+					type="hidden" /></td>
+			</tr>
+			<tr>
+				<td>用户名:</td>
+				<td>
+					<input name="username" class="easyui-textbox" style="width: 200px;"></input>
+				</td>
+			</tr>
+			<tr>
+				<td>所属部门:</td>
+				<td>
+					<input id="deptname" name="deptname" style="width: 200px;" />
+					<input type="hidden" id="deptid" name="deptid"/>
+				</td>
+			</tr>
+			<tr>
+				<td>手机:</td>
+				<td><input id="mobile" name="mobile" class="easyui-textbox"
+					style="width: 200px;"></input></td>
+			</tr>
+			<tr>
+				<td>密码:</td>
+				<td><input id="password" name="password" class="easyui-textbox"
+					style="width: 200px;"> <a href="javascript:void(0)"
+					class="easyui-linkbutton btncommon" id="userdetailgetpwdbtn"
+					icon="other-icon-mima">获得密码</a></td>
+			</tr>
+		
+			<tr>
+				<td>微信ID:</td>
+				<td><input id="weixinid" name="weixinid" class="easyui-textbox"
+					style="width: 200px;"></input></td>
+			</tr>
+			
+		</table>
+	</form>
+</div>
+<div class="sysmanage-btn">
+
+	<a href="javascript:void(0)" class="easyui-linkbutton btncommon"
+		id="userdetailbtn" icon="icon-save">保存</a>
+</div>

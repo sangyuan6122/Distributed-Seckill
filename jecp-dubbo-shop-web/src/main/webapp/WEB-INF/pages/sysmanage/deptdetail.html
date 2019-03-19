@@ -1,0 +1,43 @@
+<script type="text/javascript" src="js/sysmanage/deptdetail.js"></script>
+<div id='deptDetail' class="sysmanage-help-box">
+	<form id="deptform" method="post">
+		<table class="sysmanage-table">
+			<tr>
+				<td>父部门ID:</td>
+				<td><input id="parentdeptid" name="parentdeptid"
+					readonly="true" class="easyui-textbox" name="name"></input> <input
+					id="rtxparentdeptid" name="rtxparentdeptid" type="hidden" /> <input
+					id="rtxdeptid" name="rtxdeptid" type="hidden" /></td>
+			</tr>
+			<tr>
+				<td>部门ID:</td>
+				<td><input name="deptid" readonly="true" class="easyui-textbox"
+					name="name"></input></td>
+			</tr>
+			<tr>
+				<td>部门全称:</td>
+				<td><input name="deptfullname" class="easyui-textbox"
+					data-options="required:true,missingMessage:'请填写!'"></input></td>
+			</tr>
+			<tr>
+				<td>部门简称:</td>
+				<td><input name="deptname" class="easyui-textbox"
+					data-options="required:true,missingMessage:'请填写!'"></input></td>
+			</tr>
+			<tr>
+				<td>排序值:</td>
+				<td><input name="sort" class="easyui-textbox"></input></td>
+			</tr>
+			<tr>
+				<td>备注</td>
+				<td><input name="remark" class="easyui-textbox"
+					data-options="multiline:true" style="width: 150px; height: 100px;"></input></td>
+			</tr>
+
+		</table>
+	</form>
+</div>
+<div class="sysmanage-btn">
+	<a href="javascript:void(0)" class="easyui-linkbutton btncommon"
+		id="deptdetailbtn" icon="icon-save">保存</a>
+</div>

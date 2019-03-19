@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="com.jecp.shop.product.model.ShopProductSeckill" optimistic-lock="version" polymorphism="implicit" schema="JECP" select-before-update="false" table="SHOP_PRODUCT_SECKILL">
+        <id name="seckillId" type="string">
+            <column length="32" name="SECKILL_ID"/>
+            <generator class="uuid.hex"/>
+        </id>
+        <property generated="never" lazy="false" name="productId" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="PRODUCT_ID" not-null="true">
+                <comment>商品ID</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="seckillPrice" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="SECKILL_PRICE" precision="18">
+                <comment>秒杀价格</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="seckillStock" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="SECKILL_STOCK" precision="8" scale="0">
+                <comment>秒杀商品库存</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="sellerId" optimistic-lock="true" type="string" unique="false">
+            <column name="SELLER_ID">
+                <comment>商家ID</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="startTime" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="7" name="START_TIME">
+                <comment>秒杀开始时间</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="endTime" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="7" name="END_TIME">
+                <comment>秒杀结束时间</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="createTime" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="7" name="CREATE_TIME">
+                <comment>创建秒杀时间</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="codeStrategy" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="CODE_STRATEGY">
+                <comment>代码策略</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

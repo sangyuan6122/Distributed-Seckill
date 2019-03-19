@@ -1,0 +1,35 @@
+<script type="text/javascript" src="js/shop/product/seckill_add.js"></script>
+<form id="seckillAddForm" class="backupconndetailfrom" method="post">
+	<div class="commonitembox" style="height:100%">
+		<span class="commontitle">商品图片</span>
+		<img id="pictureUrl" src="">
+	</div>
+	<div>
+		<span class="commontitle">商品名称</span>
+		<input id="productId" name="productId" type="hidden">
+		<label id="title" name="title" style="width:300px;display:inline-block;"/>
+	</div>
+	<div class="commonitembox">
+		<span class="commontitle">秒杀价格</span>
+		<input id="seckillPrice" name="seckillPrice" type="text" style="width:300px"/>  
+	</div>
+	<div class="commonitembox">
+		<span class="commontitle">秒杀商品库存</span>
+		<input id="seckillStock" name="seckillStock" type="text" style="width:300px"/>
+	</div>
+	<div class="commonitembox">
+		<span class="commontitle">秒杀开始时间</span>
+		<input id="startTime" name="startTime" type="text" name="birthday" style="width:300px"></input> 
+	</div>
+	<div class="commonitembox">
+		<span class="commontitle">秒杀结束时间</span>
+		<input id="endTime" name="endTime" type="text" style="width:300px"></input> 
+	</div>
+	<div class="commonitembox">
+		<span class="commontitle">代码策略</span>
+		<input id="codeStrategy" name="codeStrategy" type="text" style="width:300px"></input> 
+	</div>
+	<div class="commonitembox" style="text-align:center;">
+		<a id="save" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a>
+	</div>
+</form>

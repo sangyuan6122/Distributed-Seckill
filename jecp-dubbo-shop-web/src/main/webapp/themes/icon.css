@@ -1,0 +1,227 @@
+.icon-blank {
+	background: url('icons/blank.gif') no-repeat center center;
+}
+
+.icon-add {
+	background: url('icons/edit_add.png') no-repeat center center;
+}
+
+.icon-edit {
+	background: url('icons/pencil.png') no-repeat center center;
+}
+
+.icon-clear {
+	background: url('icons/clear.png') no-repeat center center;
+}
+
+.icon-remove {
+	background: url('icons/edit_remove.png') no-repeat center center;
+}
+
+.icon-save {
+	background: url('icons/filesave.png') no-repeat center center;
+}
+
+.icon-cut {
+	background: url('icons/cut.png') no-repeat center center;
+}
+
+.icon-ok {
+	background: url('icons/ok.png') no-repeat center center;
+}
+
+.icon-no {
+	background: url('icons/no.png') no-repeat center center;
+}
+
+.icon-cancel {
+	background: url('icons/cancel.png') no-repeat center center;
+}
+
+.icon-reload {
+	background: url('icons/reload.png') no-repeat center center;
+}
+
+.icon-search {
+	background: url('icons/search.png') no-repeat center center;
+}
+
+.icon-print {
+	background: url('icons/print.png') no-repeat center center;
+}
+
+.icon-help {
+	background: url('icons/help.png') no-repeat center center;
+}
+
+.icon-undo {
+	background: url('icons/undo.png') no-repeat center center;
+}
+
+.icon-redo {
+	background: url('icons/redo.png') no-repeat center center;
+}
+
+.icon-back {
+	background: url('icons/back.png') no-repeat center center;
+}
+
+.icon-sum {
+	background: url('icons/sum.png') no-repeat center center;
+}
+
+.icon-tip {
+	background: url('icons/tip.png') no-repeat center center;
+}
+
+.icon-filter {
+	background: url('icons/filter.png') no-repeat center center;
+}
+
+.icon-man {
+	background: url('icons/man.png') no-repeat center center;
+}
+
+.icon-lock {
+	background: url('icons/lock.png') no-repeat center center;
+}
+
+.icon-more {
+	background: url('icons/more.png') no-repeat center center;
+}
+
+.icon-mini-add {
+	background: url('icons/mini_add.png') no-repeat center center;
+}
+
+.icon-mini-edit {
+	background: url('icons/mini_edit.png') no-repeat center center;
+}
+
+.icon-mini-refresh {
+	background: url('icons/mini_refresh.png') no-repeat center center;
+}
+
+.icon-large-picture {
+	background: url('icons/large_picture.png') no-repeat center center;
+}
+
+.icon-large-clipart {
+	background: url('icons/large_clipart.png') no-repeat center center;
+}
+
+.icon-large-shapes {
+	background: url('icons/large_shapes.png') no-repeat center center;
+}
+
+.icon-large-smartart {
+	background: url('icons/large_smartart.png') no-repeat center center;
+}
+
+.icon-large-chart {
+	background: url('icons/large_chart.png') no-repeat center center;
+}
+/*自定义*/
+.icon-see {
+	background: url('icons/see.png') no-repeat center center;
+}
+
+.icon-group {
+	background: url('icons/group.png') no-repeat center center;
+}
+
+.icon-all {
+	background: url('icons/all.png') no-repeat center center;
+}
+
+.other-cabinet {
+	background: url('icons/other/cabinet.png') no-repeat center center;
+}
+
+.other-dept {
+	background: url('icons/other/dept12.png') no-repeat center center;
+}
+
+.other-people {
+	background: url('icons/other/people.png') no-repeat center center;
+}
+
+.other-button {
+	background: url('icons/other/button.png') no-repeat center center;
+}
+
+.other-role {
+	background: url('icons/other/role.png') no-repeat center center;
+}
+
+.other-menu {
+	background: url('icons/other/menu.png') no-repeat center center;
+}
+
+.other-subrole {
+	background: url('icons/other/subrole.png') no-repeat center center;
+}
+
+.other-large-userlist {
+	background: url('icons/other/userlist.png') no-repeat center center;
+}
+
+.other-icon-sheet {
+	background: url('icons/other/sheet.png') no-repeat center center;
+}
+
+.other-mobile {
+	background: url('icons/other/mobile.png') no-repeat center center;
+}
+
+.other-computer {
+	background: url('icons/other/computer.png') no-repeat center center;
+}
+
+.other-icon-mima {
+	background: url('icons/mima.png') no-repeat center center;
+}
+
+.other-alarmlist-xiangqing {
+	background: url('icons/i06.png') no-repeat center center;
+}
+
+.other-alarmlist-zhuijia {
+	background: url('icons/ico02.png') no-repeat center center;
+}
+
+.other-dept-people {
+	background: url('icons/icon13.png') no-repeat center center;
+}
+
+.other-dict-page {
+	background: url('icons/icon01.png') no-repeat center center;
+}
+
+.other-menu-tree {
+	background: url('icons/ico03.png') no-repeat center center;
+}
+
+.other-icon-save {
+	background: url('icons/filesave1.png') no-repeat center center;
+}
+
+.other-icon-file {
+	background: url('icons/other/file.png') no-repeat center center;
+}
+
+.other-icon-save {
+	background: url('icons/other/folder.png') no-repeat center center;
+}
+
+.other-icon-add1 {
+	background: url('icons/other/t01.png') no-repeat center center;
+}
+
+.other-icon-remove1 {
+	background: url('icons/other/t03.png') no-repeat center center;
+}
+
+.other-icon-update1 {
+	background: url('icons/other/t02.png') no-repeat center center;
+}

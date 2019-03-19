@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+            http://www.springframework.org/schema/beans/spring-beans.xsd  
+            http://code.alibabatech.com/schema/dubbo  
+            http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<!-- 提供方应用信息，用于计算依赖关系 -->
+	<dubbo:application name="jecp-shop-product-web" />
+
+	<!-- 使用zookeeper注册中心暴露服务地址 -->
+	<dubbo:registry protocol="zookeeper" address="10.0.0.2:32182" client="zkclient"/>
+		
+	<!-- 商品服务接口 -->
+	<dubbo:reference interface="com.jecp.shop.product.api.ShopProductApi" id="shopProductApi" check="false" />
+	<!-- 秒杀商品接口 -->
+	<dubbo:reference interface="com.jecp.shop.product.api.ShopProductSecKillApi" id="shopProductSecKillApi" check="false"/>
+	
+	<!-- 商品订单接口 -->
+	<dubbo:reference interface="com.jecp.shop.order.api.ShopOrderApi" id="shopOrderApi" check="false" />
+	<!-- 交易记录服务接口 -->
+	<dubbo:reference interface="com.jecp.trade.record.api.TradeRecordApi" id="tradeRecordApi" check="false"/>
+	<!-- 可靠消息服务服务接口 -->
+	<dubbo:reference interface="com.jecp.message.api.ReliableMessageApi" id="reliableMessageApi" check="false">
+		<dubbo:method name="messageConfirm" async="true" sent="false" return="false"/>
+	</dubbo:reference>
+	
+	<!-- 买家资金账户接口 -->
+	<dubbo:reference interface="com.jecp.capital.buyer.api.CapitalBuyerAccountApi" id="capitalBuyerAccountApi" check="false" />
+	<!-- 商家资金账户接口 -->
+	<dubbo:reference interface="com.jecp.capital.seller.api.CapitalSellerAccountApi" id="capitalSellerAccountApi" check="false" />
+	<!-- 用户积分接口 -->
+	<dubbo:reference interface="com.jecp.capital.point.api.AccountPointApi" id="accountPointApi" check="false" />
+</beans>  

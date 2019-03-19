@@ -1,0 +1,30 @@
+<script type="text/javascript" src="js/sysmanage/rolelist.js"></script>
+<div id="rolelistmain" class="easyui-layout" data-options="fit:true">
+	<div data-options="region:'center',split:false">
+		<div id="rolelisttabs" class="easyui-tabs"
+			data-options="fit:true,border:false,tabHeight:39,plain:true">
+			<div title="帮助" style="padding: 1px; display: none;"
+				data-options="iconCls:'icon-help'"></div>
+
+		</div>
+	</div>
+</div>
+
+<div id="rolerightmenu" class="easyui-menu" style="width: 120px;">
+	<div onclick="rolelist.updatemenu('insert')"
+		data-options="iconCls:'icon-add'">新增角色</div>
+	<div onclick="rolelist.updatemenu('update')"
+		data-options="iconCls:'icon-reload'">修改角色</div>
+	<div onclick="rolelist.updatemenu('delete')"
+		data-options="iconCls:'icon-remove'">删除角色</div>
+</div>
+<div id="rolerightmenu1" class="easyui-menu" style="width: 120px;">
+	<div onclick="rolelist.updatemenu('update')"
+		data-options="iconCls:'icon-reload'">修改角色</div>
+	<div onclick="rolelist.updatemenu('delete')"
+		data-options="iconCls:'icon-remove'">删除角色</div>
+	<div onclick="rolelist.updatemenu('addsubrole')"
+		data-options="iconCls:'icon-add'">新增子角色</div>
+	<div onclick="rolelist.updatemenu('selectsubrole')"
+		data-options="iconCls:'icon-see'">查看子角色</div>
+</div>

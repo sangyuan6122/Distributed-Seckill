@@ -1,0 +1,35 @@
+<script type="text/javascript" src="js/sysmanage/roledetail.js"></script>
+<form id="roleform" method="post" style="margin: 5px">
+	<table width="100%" class="sysmanage-info">
+		<tr>
+			<td bgcolor="#E0ECFF" width="40%">角色名称或分类</td>
+			<td><input name="name" id="name" class="easyui-textbox"
+				style="width: 150px"> <input name="parentid" id="parentid"
+				type="hidden"> <input name="roleid" id="roleid"
+				type="hidden"></td>
+		</tr>
+		<tr>
+			<td bgcolor="#E0ECFF">类型</td>
+			<td><select id="type" name="type" class="easyui-combobox"
+				data-options="editable:false" style="width: 150px;">
+					<option value="role">角色</option>
+					<option value="menu">角色分类</option>
+			</select></td>
+		</tr>
+		<tr>
+			<td bgcolor="#E0ECFF">排序</td>
+			<td><input name="sort" id="sort" class="easyui-textbox"
+				style="width: 150px"></td>
+		</tr>
+		<tr name="equipmentshow2">
+			<td bgcolor="#E0ECFF">备注</td>
+			<td><input id="remark" name="remark" class="easyui-textbox"
+				data-options="multiline:true" style="width: 150px; height: 100px">
+			</td>
+		</tr>
+		<tr>
+			<td colspan='2' align="center"><a id="rolebtn"
+				class="easyui-linkbutton" data-options="iconCls:'icon-ok'">提交</a></td>
+		</tr>
+	</table>
+</form>

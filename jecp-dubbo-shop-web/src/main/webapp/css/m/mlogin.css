@@ -1,0 +1,56 @@
+.header {
+	text-align: center;
+	padding-top: 5.8rem;
+}
+
+.header h2 {
+	margin-top: 2.125rem;
+	font-size: 1.5rem;
+	font-weight: normal;
+	margin-bottom: 1.0rem;
+	color: #ea9a16;
+}
+
+.login-box {
+	padding: 2px 0;
+	border: 1px solid #afafaf;
+	border-radius: 3px;
+	box-sizing: border-box;
+	margin-bottom: 100px;
+}
+
+.login-box * {
+	box-sizing: border-box;
+}
+
+.login-wrap {
+	padding: 0 0.75rem;
+	margin-top: 30%;
+}
+
+.login-box input {
+	outline: none;
+	border: none;
+	width: 100%;
+	height: 4.0rem;
+	line-height: 4.0rem;
+	padding: 0 0.95rem;
+	border-top: 1px solid #cfcfcf;
+	font-size: 40px;
+}
+
+.login-box .input-wrap {
+	position: relative;
+}
+
+.login-box .input-wrap .validate-code {
+	position: absolute;
+	right: 0.5rem;
+	top: 0.126rem;
+	height: 1.88rem;
+	width: 3.0rem;
+}
+
+.login-box .input-wrap:first-child input {
+	border-top: none;
+}

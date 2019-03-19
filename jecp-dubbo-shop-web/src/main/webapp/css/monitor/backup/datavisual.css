@@ -1,0 +1,166 @@
+.backupjiankongbox {
+	width: 100%;
+	height: 100%;
+	background: url(../../../images/jkbgbody2.png);
+	overflow: hidden;
+}
+
+.backupjiankongtopbox, .backupjiankongmiddlebox,
+	.backupjiankongbottombox {
+	width: 100%;
+	height: 32%;
+}
+
+.backupjkheader {
+	width: 100%;
+	height: 28px;
+	line-height: 28px;
+	background: url(../../../images/jkheader.jpg);
+	background-size: 100% 100%;
+	font-weight: bold;
+	font-size: 14px;
+	color: #fff;
+	padding-left: 10px;
+	box-sizing: border-box;
+	border-radius: 10px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.commonbackupshort {
+	width: 31%;
+	height: 96%;
+	background: #0c0e1d;
+	border: 2px solid #5e627b;
+	float: right;
+	margin-top: 12px;
+	border-radius: 10px;
+}
+
+.commonbackuplong {
+	width: 65%;
+	height: 96%;
+	background: #0c0e1d;
+	border: 2px solid #5e627b;
+	float: left;
+	margin-top: 12px;
+	border-radius: 10px;
+}
+
+.backupjktbtotal, .backupjkwaring {
+	margin-left: 1%;
+}
+
+.backuptool, .backuptotalchange, .backuptotalchangeline {
+	margin-right: 1%;
+}
+
+.backupjktime {
+	float: left;
+	margin-left: 1%;
+	width: 48%;
+	height: 96%
+}
+
+.backupadd {
+	float: right;
+	margin-right: 1%;
+	width: 48%;
+	height: 96%
+}
+/* 备份告警样式 */
+.backupwaringbox {
+	width: 100%;
+	height: 86%;
+}
+
+.backupwaringgeshu, .backupwaringchange {
+	width: 22%;
+	height: 100%;
+	float: left;
+}
+
+.backupwaringchange {
+	width: 38%;
+	height: 100%;
+}
+
+.backupwaringnormal, .backupwaringyichang {
+	width: 90%;
+	height: 20%;
+	box-sizing: border-box;
+	background: #fff;
+	border-radius: 5px;
+	margin-top: 27%;
+	margin-left: 8%;
+	box-sizing: border-box;
+}
+
+.backupwaringnormaltitle, .backupwaringyichangtitle {
+	width: 38%;
+	height: 100%;
+	box-shadow: 0 0 2px #fff inset;
+	float: left;
+	background: #27727b;
+	text-align: center;
+	line-height: 36px;
+	font-size: 16px;
+	color: #fff;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.backupwaringyichangtitle {
+	background: #c1232b;
+}
+
+.backupwaringnormalcontent, .backupwaringyichangcontent {
+	width: 60%;
+	background: #fff;
+	height: 100%;
+	float: left;
+	text-align: center;
+	line-height: 36px;
+	font-size: 16px;
+	color: #333;
+	border-left: 2px solid #5e627b;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.backupwaringtable {
+	width: 38%;
+	height: 84%;
+	float: left;
+	margin-top: 2%
+}
+
+.backupwaringdg th {
+	width: 50%;
+}
+
+.otherbackupwaringtheader .datagrid-header-inner {
+	background: #0c0e1d;
+	color: #fff
+}
+
+.otherbackupwaringtbody {
+	background: #0c0e1d;
+}
+
+@media screen and (max-height:768px) { /* 高度小等于768*/
+	.backupwaringnormaltitle, .backupwaringnormalcontent,
+		.backupwaringyichangtitle, .backupwaringnormalcontent {
+		line-height: 26px;
+	}
+}
+
+@media screen and (min-height:900px) { /* 高度大于等于768*/
+	.backupwaringnormaltitle, .backupwaringnormalcontent,
+		.backupwaringyichangtitle, .backupwaringnormalcontent {
+		line-height: 54px;
+	}
+	.backupwaringtable {
+		margin-top: 4%
+	}
+}

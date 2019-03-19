@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="com.jecp.shop.order.model.ShopOrder" optimistic-lock="version" polymorphism="implicit" schema="JECP" select-before-update="false" table="SHOP_ORDER">
+        <id name="orderId" type="string">
+            <column length="32" name="ORDER_ID"/>
+            <generator class="uuid.hex"/>
+        </id>
+        <property generated="never" lazy="false" name="gtid" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="GTID" precision="18" scale="0" unique="true">
+                <comment>全局事务ID</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="status" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="STATUS">
+                <comment>状态(0未付款,1已付款,2已发货,3已签收,4退货申请,5退货中,6已退货,7取消交易,8已完成)</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="productId" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="PRODUCT_ID">
+                <comment>商品ID</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="productTitle" optimistic-lock="true" type="string" unique="false">
+            <column name="PRODUCT_TITLE">
+                <comment>商品名称</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="productCount" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="PRODUCT_COUNT" precision="10" scale="0">
+                <comment>商品数量</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="productPrice" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="PRODUCT_PRICE" precision="18">
+                <comment>商品价格</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="totalAmount" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="TOTAL_AMOUNT" precision="18">
+                <comment>总金额</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="userId" optimistic-lock="true" type="string" unique="false">
+            <column name="USER_ID">
+                <comment>购买用户</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="salesWay" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="SALES_WAY" precision="5" scale="0">
+                <comment>促销方式(0正常销售,1秒杀,2团购)</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="orderChannel" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="ORDER_CHANNEL" precision="5" scale="0">
+                <comment>订单渠道(0PC,1ANDROID,2IOS)</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="createTime" optimistic-lock="true" type="java.sql.Timestamp" unique="false">
+            <column length="7" name="CREATE_TIME">
+                <comment>创建订单时间</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="lastUpdateTime" optimistic-lock="true" type="java.sql.Timestamp" unique="false">
+            <column length="7" name="LAST_UPDATE_TIME">
+                <comment>最后更新时间</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="payTime" optimistic-lock="true" type="java.sql.Timestamp" unique="false">
+            <column length="7" name="PAY_TIME">
+                <comment>支付时间</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="seckillId" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="SECKILL_ID">
+                <comment>秒杀商品ID</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

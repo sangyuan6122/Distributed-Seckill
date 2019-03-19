@@ -1,0 +1,32 @@
+<script type="text/javascript" src="js/sysmanage/subroledetail.js"></script>
+<form id="subroledetailform" method="post"
+	style="margin: 5px 5px 0 5px;">
+	<table width="100%" class="sysmanage-info">
+		<tr>
+			<td bgcolor="#E0ECFF" width="40%">所属角色</td>
+			<td><input name="rolename" id="rolename"> <input
+				name="roleid" id="roleid" type="hidden"></td>
+		</tr>
+		<tr>
+			<td bgcolor="#E0ECFF" width="40%">所属部门</td>
+			<td><select id="deptid" name="deptid">
+					<input name="deptname" id="deptname" type="hidden"></td>
+		</tr>
+		<tr>
+			<td bgcolor="#E0ECFF">子角色名称</td>
+			<td>
+				<div name="subrolename" id="subrolename" />
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="#E0ECFF">备注</td>
+			<td><input class="easyui-textbox" data-options="multiline:true"
+				style="width: 300px;"></td>
+		</tr>
+		<tr>
+			<td colspan='2' align="center"><a id="subroledetailbtn"
+				class="easyui-linkbutton save-btn"
+				data-options="iconCls:'icon-save'">保存</a></td>
+		</tr>
+	</table>
+</form>

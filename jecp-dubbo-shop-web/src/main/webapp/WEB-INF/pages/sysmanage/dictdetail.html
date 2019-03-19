@@ -1,0 +1,44 @@
+<script type="text/javascript" src="js/sysmanage/dictdetail.js"></script>
+<div id='dictDetail' class="sysmanage-help-box">
+	<form id="dictform" method="post">
+		<table class="sysmanage-table">
+			<tr>
+				<td>父字典编码</td>
+				<td><input id="parentdictid" name="parentdictid"
+					readonly="true" class="easyui-textbox" name="name" style="background:#f00"></input></td>
+			</tr>
+			<tr>
+				<td>字典编码</td>
+				<td><input name="dictid" readonly="true" class="easyui-textbox"
+					name="name"></input></td>
+			</tr>
+			<tr>
+				<td>字典名称</td>
+				<td><input name="dictname" class="easyui-textbox"
+					data-options="required:true,missingMessage:'请填写字典名称'"></input></td>
+			</tr>
+			<tr>
+				<td>字典别名</td>
+				<td><input name="dictalias" class="easyui-textbox"></input></td>
+			</tr>
+			<tr>
+				<td>字典接口</td>
+				<td><input name="dictcode" class="easyui-textbox"></input></td>
+			</tr>
+			<tr>
+				<td>排序值</td>
+				<td><input name="sort" class="easyui-textbox"></input></td>
+			</tr>
+			<tr>
+				<td>备注</td>
+				<td><input name="remark" class="easyui-textbox"
+					data-options="multiline:true" style="width: 150px; height: 100px"></input></td>
+			</tr>
+
+		</table>
+	</form>
+</div>
+<div class="sysmanage-btn">
+	<a href="javascript:void(0)" class="easyui-linkbutton" id="dictbtn"
+		icon="icon-save">保存</a>
+</div>

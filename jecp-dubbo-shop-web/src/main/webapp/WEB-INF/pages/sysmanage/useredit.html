@@ -1,0 +1,59 @@
+<script type="text/javascript" src="js/sysmanage/useredit.js"></script>
+<div id="useredittabs" class="easyui-tabs"
+	data-options="border:false,fit:true,tabPosition:'left',plain:true,headerWidth:'110'">
+	<div class="useredit-base" title="基本信息"
+		style="padding: 10px; display: none;">
+		<div id="usereditdiv">
+			<table>
+				<tr>
+					<td class="useredit-desc">所属部门:</td>
+					<td><span id="deptname" /></td>
+				</tr>
+				<tr>
+					<td class="useredit-desc">用户ID:</td>
+					<td><span id="userid" /></td>
+				</tr>
+				<tr>
+					<td class="useredit-desc">用户名称:</td>
+					<td><span id="username" /></td>
+				</tr>
+				<tr>
+					<td class="useredit-desc">手机号码:</td>
+					<td><span id="mobile" /></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="useredit-pass" title="修改密码" data-options=""
+		style="overflow: auto; padding: 20px; display: none;">
+		<form id="usereditpwdform" method="post">
+			<table>
+				<tr>
+					<td class="usereditpwdform-desc">原密码:</td>
+					<td><input id="oldpassword" name="oldpassword"
+						class="easyui-textbox"
+						data-options="type:'password',required:true,"
+						validtype="minLength[6]" style="width: 150px"></td>
+				</tr>
+				<tr>
+					<td class="usereditpwdform-desc">新密码:</td>
+					<td><input id="newpassword1" class="easyui-textbox"
+						data-options="type:'password',required:true,"
+						validtype="minLength[6]" style="width: 150px"></td>
+				</tr>
+				<tr>
+					<td class="usereditpwdform-desc">再次输入:</td>
+					<td><input id="newpassword2" name="newpassword2"
+						class="easyui-textbox"
+						data-options="type:'password',required:true,"
+						validType="equalTo['#usereditpwdform #newpassword1']"
+						style="width: 150px"></td>
+				</tr>
+			</table>
+			<div style="text-align: center;">
+				<a id="usereditpwdbtn" href="#" class="easyui-linkbutton"
+					data-options="iconCls:'icon-ok'">修改</a>
+			</div>
+		</form>
+	</div>
+</div>

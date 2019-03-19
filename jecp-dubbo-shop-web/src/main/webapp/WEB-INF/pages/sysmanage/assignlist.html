@@ -1,0 +1,22 @@
+<script type="text/javascript" src="js/sysmanage/assignlist.js"></script>
+<div id="assignmain" class="easyui-layout" data-options="fit:true"
+	border="false">
+	<div data-options="region:'center'">
+		<div id="assigntabs" class="easyui-tabs"
+			data-options="fit:true,border:false,tabHeight:39,plain:true">
+			<div title="帮助" class="sysmanage-help"
+				data-options="iconCls:'icon-help'">
+				添加一个下级人员<br>&nbsp;&nbsp;&nbsp;在树图中的人员项上点击右键，并选择"新建人员"
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="assignaddmenu" class="easyui-menu" style="width: 120px;">
+	<div onclick="assignlist.updatemenu('dept')"
+		data-options="iconCls:'icon-add'">分配部门权限</div>
+</div>
+<div id="assignupdatemenu" class="easyui-menu" style="width: 120px;">
+	<div onclick="assignlist.updatemenu('user')"
+		data-options="iconCls:'icon-add'">分配人员权限</div>
+</div>

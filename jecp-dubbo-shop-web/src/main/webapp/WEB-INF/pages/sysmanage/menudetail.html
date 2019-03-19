@@ -1,0 +1,70 @@
+<script type="text/javascript" src="js/sysmanage/menudetail.js"></script>
+<div id='privDetail' class="sysmanage-help-box">
+	<form id="privform" method="post">
+		<table class="sysmanage-table">
+			<tr>
+				<td>父菜单ID:</td>
+				<td><input id="parentprivid" name="parentprivid"
+					readonly="true" class="easyui-textbox" name="name"></input></td>
+			</tr>
+			<tr>
+				<td>菜单ID:</td>
+				<td><input name="privid" readonly="true" class="easyui-textbox"
+					name="name"></input></td>
+			</tr>
+			<tr>
+				<td>菜单名称:</td>
+				<td><input name="name" class="easyui-textbox"
+					data-options="required:true,missingMessage:'请填写菜单名称'"></input></td>
+			</tr>
+			<tr>
+				<td>URL:</td>
+				<td><input name="url" class="easyui-textbox"></input></td>
+			</tr>
+			<tr>
+				<td>菜单等级:</td>
+				<td><select class="easyui-combobox" name="menulevel"
+					data-options="panelHeight:88,editable:false" style="width: 125px;">
+						<option value="0">首页</option>
+						<option value="1">一级</option>
+						<option value="2" selected='selected'>二级</option>
+						<option value="3">三级</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>是否隐藏:</td>
+				<td><select class="easyui-combobox" name="hide"
+					data-options="panelHeight:50,editable:false" style="width: 125px;">
+						<option value="0">否</option>
+						<option value="1">是</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>排序值:</td>
+				<td><input name="sort" class="easyui-textbox"
+					data-options="validType:'checkInt'"></input></td>
+			</tr>
+			<tr>
+				<td>图标上传:</td>
+				<td><input id="attchoose" name="attchoose" type="text"
+					style="width: 150px"> <input id="ico" name="ico"
+					type="hidden"></td>
+			</tr>
+			<tr>
+				<td>图标预览:</td>
+				<td id="preview"
+					style="background-repeat: no-repeat; width: 48px; height: 48px; background-size: 100% 100%; display: inline-block"></td>
+			</tr>
+			<tr>
+				<td>备注</td>
+				<td><input name="remark" class="easyui-textbox"
+					data-options="multiline:true" style="width: 150px; height: 100px"></input></td>
+			</tr>
+
+		</table>
+	</form>
+</div>
+<div class="sysmanage-btn">
+	<a href="javascript:void(0)" class="easyui-linkbutton" id="btn"
+		icon="icon-save">保存</a>
+</div>

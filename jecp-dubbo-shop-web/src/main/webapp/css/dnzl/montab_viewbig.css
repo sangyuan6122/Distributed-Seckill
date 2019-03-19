@@ -1,0 +1,4 @@
+*{margin:0;padding:0;}
+.montab_viewbig{width:100%;height:100%;position:relative;background-image:url(../../images/dnzl/indexbg1.jpg);background-repeat:repeat-y;background-size:100% 100%; }
+.htmlnode{box-sizing:border-box;width:362px;border:2px solid #08bef5;overflow:hidden;border-bottom:none;border-right:none;}
+.htmlnodeitem{width:90px;height:43px;font-size:16px;text-align:center;line-height:43px;color:#07ffff;float:left;display:inline-block;border-right:2px solid #08bef5;box-sizing:border-box;}

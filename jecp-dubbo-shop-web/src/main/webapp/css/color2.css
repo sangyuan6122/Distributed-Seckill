@@ -1,0 +1,64 @@
+
+#hd{ position:relative; width:100%; height:114px; background:url(../images/color2/topbg.png) repeat-x; z-index:2;}
+.hd-top .setting .setting-skin i.skin-icon{left:9px;top:9px;width:11px; height:10px; background:url(../images/color2/skinicon.png);}
+.hd-bottom .nav-btn a.nav-prev-btn{ background:url(../images/color2/leftright.png);}
+.hd-bottom .nav-btn a.nav-prev-btn:hover{background:url(../images/color2/leftright.png) 0 -23px;}
+.hd-bottom .nav-btn a.nav-next-btn{ background:url(../images/color2/leftright.png) -23px -23px;}
+.hd-bottom .nav-btn a.nav-next-btn:hover{ background:url(../images/color2/leftright.png) -23px 0;}
+
+.other-index-header{background:url(../images/color2/leftmenubg.png);border:none;}
+.other-index-header .panel-title{color:#fff}
+.menu_nav .nav_content li a:hover{ text-decoration:none;color:#18afe7}
+.accordion-collapse {
+    background: url('../images/color2/leftmenu.png') no-repeat 0 0;
+}
+.menu_nav .nav_content li a.selected{color:#18afe7;}
+.accordion-expand{background:url('../images/color2/leftmenu.png') no-repeat -16px 0;}
+.tabs li.tabs-selected a.tabs-inner{
+	 background:#fff;
+  	 color: #18afe7;
+  	 border-top:2px solid #18afe7;
+  	 border-top-left-radius:3px;
+  	 border-top-right-radius:3px;
+  	 border-bottom:1px solid #fff;
+}
+.icon-help {
+    background: url('../images/color2/help.png') no-repeat center center;
+}
+.other-icon-paneltitle {
+    background: url('../images/color2/lefticon.png') no-repeat center center;
+}
+.other-icon-addnew:hover{
+	background:url('../images/color2/ico01_1hover.png') no-repeat center center;
+}
+.other-icon-delnew:hover{
+	background:url('../images/color2/ico02_1hover.png') no-repeat center center;
+}
+.hd-bottom .home>a{float:left; margin:9px 0 0 32px; width:24px; height:24px; background:url(../images/color2/home.png);}
+
+.tree-file {
+    background: url('../images/color2/leftlist.png') no-repeat center center;
+}
+/* .tree-folder {
+    background: url('../images/color2/tree_icons.png') no-repeat -208px 0;
+}
+.tree-folder-open {
+    background: url('../images/color2/tree_icons.png') no-repeat -224px 0;
+} */
+
+.tree-node-hover{color:#18afe7;background:none}
+.tree-node-selected{background:#38a3d5;color:#fff;}
+#center #tab .tabs li.tabs-selected{border:3px solid #18afe7;}
+
+/*窗口*/
+.window {
+    background:url('../images/color2/diagle/topcenter.png');
+    background-size:100% 100%;
+    box-sizing:border-box;
+}
+.window .panel-header, .window .panel-body{border-color: #18afe7;border:none;}
+
+.commonbtn{background:url('../images/color2/formbtnbg.png') repeat-X;}
+
+
+

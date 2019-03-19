@@ -1,0 +1,323 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+	font-family: '微软雅黑';
+	color: #8c8c8c;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+}
+
+ul li {
+	list-style: none;
+}
+
+.imgboxitem img {
+	display: block;
+	width: 72px;
+	height: 72px;
+}
+
+.indexbox {
+	width: 100%;
+	height: 100%;
+	background: #fff;
+}
+
+.canvasbox {
+	width: 100%;
+	height: 25%;
+	background: #f00;
+}
+
+.canvasbox img {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+.imgboxitem img {
+	width: 100%;
+	height: 100%;
+}
+
+.navbox {
+	height: 75%;
+	overflow: hidden;
+	width: 100%;
+}
+
+.navbox ul {
+	overflow: hidden;
+}
+
+.navboxitem {
+	width: 25%;
+	height: 25%;
+	float: left;
+	text-align: center;
+	padding-top: 35px;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.navboxitem p {
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	font-size: 24px;
+	margin-top: 10px;
+}
+
+.imgboxdingwei {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.imgbox {
+	width: 200px;
+	height: 200px;
+	border-radius: 20px;
+	margin: 0 auto;
+	text-align: center;
+	border: 1px solid #ccc;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+.imgbox .imgboxitem {
+	width: 78px;
+	height: 78px;
+	margin: 10px;
+	float: left;
+}
+
+.messageintall {
+	position: absolute;
+	width: 26px;
+	height: 26px;
+	border-radius: 15px;
+	background-color: #cc0000;
+	display: none;
+	text-align: centere;
+	font-size: 18px;
+	color: #fff;
+	top: 27px;
+	left: 138px
+}
+
+.tips {
+	position: absolute;
+	width: 36px;
+	height: 36px;
+	border-radius: 20px;
+	background-color: #cc0000;
+	text-align: center;
+	font-size: 24px;
+	line-height: 35px;
+	color: #fff;
+	top: 10px;
+	left: 158px
+}
+
+.navboxitem .onlyimgbox {
+	width: 100px;
+	height: 100px;
+}
+
+.menuwindow {
+	width: 600px;
+	height: 620px;
+	background: #fff;
+	border: 1px solid #aaa;
+	position: absolute;
+	left: 50%;
+	margin-left: -300px;
+	top: 50%;
+	margin-top: -210px;
+	box-sizing: border-box;
+	display: none;
+}
+
+.menuwindow .imgbox {
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+
+.menuwindow .imgbox .imgboxitem {
+	width: 33%;
+	height: 33%;
+	margin: 0;
+	padding-top: 20px;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.menuwindow .imgbox .imgboxitem img {
+	width: 160px;
+	height: 160px;
+	margin: 0 auto;
+}
+
+.menuwindow #menuname {
+	display: block;
+	line-height: 50px;
+	font-size: 18px;
+}
+
+.windowtitle {
+	width: 100%;
+	height: 60px;
+	border-bottom: 1px solid #ccc;
+	line-height: 60px;
+	text-align: center;
+	font-weight: bold;
+	color: #666;
+	font-size: 16px;
+	background-image: url("../../images/m/btnguan.png");
+	background-repeat: no-repeat;
+	background-position: right center;
+	box-sizing: border-box;
+}
+
+@media screen and (max-width:540px) {
+	.imgbox {
+		width: 48px;
+		height: 48px;
+	}
+	.imgbox .imgboxitem {
+		width: 16px;
+		height: 16px;
+		margin: 3px;
+	}
+	.navboxitem .onlyimgbox {
+		width: 48px;
+		height: 48px;
+	}
+	.imgboxdingwei {
+		width: 48px;
+	}
+	.messageintall {
+		left: 57px;
+		width: 16px;
+		height: 16px;
+		line-height: 16px;
+		font-size: 12px;
+	}
+	.menuwindow {
+		width: 280px;
+		height: 360px;
+		margin-left: -140px;
+		margin-top: -180px;
+	}
+	.menuwindow .tips {
+		width: 18px;
+		height: 18px;
+		border-radius: 15px;
+		left: 60px;
+		font-size: 12px;
+	}
+	.navboxitem p {
+		font-size: 14px;
+	}
+	.menuwindow .imgbox .imgboxitem img {
+		width: 48px;
+		height: 48px;
+		margin: 0 auto;
+	}
+	.menuwindow #menuname {
+		line-height: 30px;
+		font-size: 12px;
+	}
+	.windowtitle {
+		height: 40px;
+		line-height: 40px;
+		background-image: url("../images/btn24.png");
+	}
+}
+
+@media screen and (min-width:1080px) {
+	.imgbox {
+		width: 188px;
+		height: 188px;
+	}
+	.imgbox .imgboxitem {
+		width: 72px;
+		height: 72px;
+		margin: 10px;
+	}
+	.navboxitem .onlyimgbox {
+		width: 213px;
+		height: 213px;
+	}
+	.imgboxdingwei {
+		width: 188px;
+	}
+	.messageintall {
+		left: 218px;
+		width: 40px;
+		height: 40px;
+		border-radius: 20px;
+		font-size: 20px;
+		line-height: 40px;
+	}
+	.menuwindow {
+		width: 560px;
+		height: 720px;
+		margin-left: -280px;
+		margin-top: -360px;
+	}
+	.menuwindow .imgbox .imgboxitem img {
+		width: 144px;
+		height: 144px;
+		margin: 0 auto;
+	}
+	.menuwindow .tips {
+		width: 38px;
+		height: 38px;
+		border-radius: 20px;
+		left: 146px;
+	}
+	.menuwindow #menuname {
+		line-height: 60px;
+		font-size: 22px;
+	}
+	.windowtitle {
+		height: 80px;
+		line-height: 80px;
+		font-size: 20px;
+		background-image: url("../../images/m/btn64.png");
+	}
+}
+
+#menuname {
+	display: none;
+	border-radius: 10px;
+}
+
+.commontitlebox {
+	width: 100%;
+	height: 48px;
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+	line-height: 48px;
+	background: #339999;
+	font-weight: bold;
+}
+
+.equseachbox {
+	width: 100%;
+	height: 48px;
+	line-height: 48px;
+	background: #ccc;
+	padding: 6px 0;
+	box-sizing: border-box;
+	text-align: center;
+}

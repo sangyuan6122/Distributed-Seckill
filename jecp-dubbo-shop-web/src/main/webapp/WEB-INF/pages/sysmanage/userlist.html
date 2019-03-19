@@ -1,0 +1,27 @@
+<script type="text/javascript" src="js/sysmanage/userlist.js"></script>
+<div id="usermain" class="easyui-layout" data-options="fit:true"
+	border="false">
+	<div data-options="region:'center'">
+		<div id="usertabs" class="easyui-tabs"
+			data-options="fit:true,border:false,tabHeight:39,plain:true">
+			<div title="帮助" class="sysmanage-help"
+				data-options="iconCls:'icon-help'">
+				添加一个下级人员<br>&nbsp;&nbsp;&nbsp;在树图中的人员项上点击右键，并选择"新建人员"
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div id="useraddmenu" class="easyui-menu" style="width: 120px;">
+	<div onclick="userlist.updatemenu('insert')"
+		data-options="iconCls:'icon-add'">新增人员</div>
+	<div onclick="userlist.syncrtx()" data-options="iconCls:'icon-ok'">[全]同步RTX</div>
+</div>
+<div id="userupdatemenu" class="easyui-menu" style="width: 120px;">
+	<div onclick="userlist.updatemenu('update')"
+		data-options="iconCls:'icon-clear'">人员修改</div>
+	<div onclick="userlist.updatemenu('delete')"
+		data-options="iconCls:'icon-remove'">删除人员</div>
+	<div onclick="userlist.syncrtx()" data-options="iconCls:'icon-ok'">[全]同步RTX</div>
+</div>

@@ -1,0 +1,4 @@
+*{margin:0;padding:0;}
+.zbjktitlebox{width:100%;height:100%;text-align:center;color:#036f99;background-image:url(../../images/dnzl/boxbg1.png);background-size:100% 100%;}
+.zbjktitlebox img{display:block;margin:0 auto;}
+.zbjktitle{top:60px;left:44%;position:absolute;height:30px;color:#036f99;font-size:18px;font-weight:bold}

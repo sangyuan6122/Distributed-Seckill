@@ -1,0 +1,23 @@
+<script type="text/javascript" src="js/sysmanage/dictlist.js"></script>
+<div id="dictmain" class="easyui-layout" data-options="fit:true"
+	border="false">
+	<div data-options="region:'center'">
+		<div id="dicttabs" class="easyui-tabs"
+			data-options="fit:true,border:false,tabHeight:39,plain:true">
+			<div title="帮助" class="sysmanage-help"
+				data-options="iconCls:'icon-help'">
+				添加一个下级字典项<br>&nbsp;&nbsp;&nbsp;在树图中的字典项上点击右键，并选择"新建字典项"
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div id="dictrightmenu" class="easyui-menu" style="width: 120px;">
+	<div onclick="dictlist.updatemenu('insert')"
+		data-options="iconCls:'icon-add'">添加</div>
+	<div onclick="dictlist.updatemenu('update')"
+		data-options="iconCls:'icon-clear'">修改</div>
+	<div onclick="dictlist.updatemenu('delete')"
+		data-options="iconCls:'icon-remove'">删除</div>
+</div>

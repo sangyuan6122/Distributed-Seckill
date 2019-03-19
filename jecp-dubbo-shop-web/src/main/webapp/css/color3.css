@@ -1,0 +1,58 @@
+
+#hd{ position:relative; width:100%; height:114px; background:url(../images/color3/topbg.png) repeat-x; z-index:2;}
+.hd-top .setting .setting-skin i.skin-icon{left:9px;top:9px;width:11px; height:10px; background:url(../images/color3/skinicon.png);}
+.hd-bottom .nav-btn a.nav-prev-btn{ background:url(../images/color3/leftright.png);}
+.hd-bottom .nav-btn a.nav-prev-btn:hover{background:url(../images/color3/leftright.png) 0 -23px;}
+.hd-bottom .nav-btn a.nav-next-btn{ background:url(../images/color3/leftright.png) -23px -23px;}
+.hd-bottom .nav-btn a.nav-next-btn:hover{ background:url(../images/color3/leftright.png) -23px 0;}
+
+.other-index-header{background:url(../images/color3/leftmenubg.png);border:none;}
+.other-index-header .panel-title{color:#fff}
+.menu_nav .nav_content li a:hover{ text-decoration:none;color:#1ca05e}
+.menu_nav .nav_content li a.selected{color:#1ca05e;}
+.accordion-collapse {
+    background: url('../images/color3/leftmenu.png') no-repeat 0 0;
+}
+.accordion-expand{background:url('../images/color3/leftmenu.png') no-repeat -16px 0;}
+.tabs li.tabs-selected a.tabs-inner{
+	 background:none;
+  	 color: #1ca05e;
+  	 border-top:2px solid #1ca05e;
+  	 border-top-left-radius:3px;
+  	 border-top-right-radius:3px;
+  	  border-bottom:1px solid #fff;
+}
+.icon-help {
+    background: url('../images/color3/help.png') no-repeat center center;
+}
+.other-icon-addnew:hover{
+	background:url('../images/color3/ico01.png') no-repeat center center;
+}
+.other-icon-delnew:hover{
+	background:url('../images/color3/ico02.png') no-repeat center center;
+}
+.hd-bottom .home>a{float:left; margin:9px 0 0 32px; width:24px; height:24px; background:url(../images/color3/home.png);}
+
+.tree-folder {
+    background: url('../images/color3/tree_icons.png') no-repeat -208px 0;
+}
+.tree-folder-open {
+    background: url('../images/color3/tree_icons.png') no-repeat -224px 0;
+}
+.tree-file {
+    background: url("../images/color3/tree_icons.png") no-repeat -240px 0;
+}
+ .tree-node-hover{background:#fedebd;color:#1ca05e}
+.tree-node-selected{background:#fde8d2} 
+
+/*窗口*/
+.window {
+    background:#1ca05e;
+    background-size:100% 100%;
+    box-sizing:border-box;
+}
+.window .panel-header, .window .panel-body{border-color: #1ca05e;}
+
+.commonbtn {
+    background:#1ca05e;
+}
