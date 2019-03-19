@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2019-2-26 10:58:45 by Hibernate Tools 5.1.6.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="com.jecp.capital.buyer.model.CapitalAccountHis" optimistic-lock="version" polymorphism="implicit" schema="JECP" select-before-update="false" table="CAPITAL_ACCOUNT_HIS">
+        <id name="id" type="string">
+            <column length="32" name="ID"/>
+            <generator class="uuid.hex" />
+        </id>
+        <property generated="never" lazy="false" name="userId" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="USER_ID">
+                <comment>账户ID</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="accountType" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="ACCOUNT_TYPE">
+                <comment>账户类型(1:买家，2:商家)</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="tradeAmount" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="TRADE_AMOUNT" precision="18">
+                <comment>交易金额</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="tradeType" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="TRADE_TYPE">
+                <comment>交易类型(add:加款,sub:减款)</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="balance" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="BALANCE" precision="18">
+                <comment>余额</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="status" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="STATUS">
+                <comment>资金账户流水状态</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="gtid" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="GTID" precision="18" scale="0">
+                <comment>全局订单号</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="createTime" optimistic-lock="true" type="java.sql.Timestamp" unique="false">
+            <column length="7" name="CREATE_TIME">
+                <comment>创建时间</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="updateDate" optimistic-lock="true" type="java.sql.Timestamp" unique="false">
+            <column length="7" name="UPDATE_DATE">
+                <comment>更新时间</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>
