@@ -103,7 +103,7 @@ echo 1 > /proc/sys/net/ipv4/tcp_tw_recycle(快速回收socket资源，  默认�
 ##### 说明:  
 1)实时交易系统数据提交比较频繁即硬盘IOPS会比较高，如果用个人PC测试建议使用SSD，械硬盘IOPS约为160左右基本无法压测，测试比对数据如下:  
 ![sata](project-information/sata.gif)使用机械硬盘iops为169，使用率:98.8%  
-![ssd](project-information/ssd.gif)换为SSD后iops为，使用率:%   
+![ssd](project-information/ssd.png)换为SSD后iops为5000+，使用率:37.95%   
 2)测试工具使用Jmeter;  
 3)接口:  
 生成所有cookie：http://127.0.0.1:8080/jecp/userBuildAllCookies   
@@ -142,4 +142,5 @@ echo 1 > /proc/sys/net/ipv4/tcp_tw_recycle(快速回收socket资源，  默认�
 ![jmeter_pay_setting](project-information/jmeter_pay_setting.png)
 50线程
 ![jmeter_pay_result](project-information/jmeter_pay_result.png)  
-
+100线程   
+![jmeter_pay_100_result](project-information/jmeter_pay_100_result.png)  
