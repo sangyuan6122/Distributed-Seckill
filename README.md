@@ -153,5 +153,5 @@ echo 1 > /proc/sys/net/ipv4/tcp_tw_recycle(快速回收socket资源，  默认�
 100线程   
 ![jmeter_pay_100_result](project-information/jmeter_pay_100_result.png)  
 cpu平均负载已达85%，硬件资源已达瓶颈    
-![pay_top](project-information/pay_top.png) 
+![pay_top](project-information/pay_top.png)   
 总结:场景测试中数据可靠性没问题，平均TPS>90。
