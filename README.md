@@ -105,8 +105,11 @@ echo 1 > /proc/sys/net/ipv4/tcp_tw_recycle(快速回收socket资源，  默认�
 ![sata](project-information/sata.gif)使用机械硬盘iops为169，使用率:98.8%  
 ![ssd](project-information/ssd.gif)换为SSD后iops为，使用率:%   
 2)测试工具使用Jmeter;  
-3)生成所有cookie：http://127.0.0.1:8080/jecp/userBuildAllCookies,  
+3)接口:  
+生成所有cookie：http://127.0.0.1:8080/jecp/userBuildAllCookies   
 导出所有交易记录ID:http://127.0.0.1:8080/jecp/trade/record/allTradeId  
+秒杀接口:http://127.0.0.1:8080/jecp/shop/secKill/secKill  
+支付接口:http://127.0.0.1:8080/jecp/shop/order/pay  
 ##### 秒杀场景:
 场景涉及商品管理、订单管理、支付管理三个服务，商品扣减库存后要生产订单和支付记录，测试内容:  
 1)模拟10W用户同时秒杀1000件商品，测试秒杀业务性能；  
@@ -135,5 +138,8 @@ echo 1 > /proc/sys/net/ipv4/tcp_tw_recycle(快速回收socket资源，  默认�
 总结:订单数量、支付记录数量相等并与商品销售量匹配，200线程并发下分布式秒杀场景吞吐量>3400，秒杀场景三种策略中队列策略性能最好，由于秒杀场景生产订单是异步，测试数据中不能充分体验分布式事务性能，接下来便测试分布式事务。  
 ##### 分布式事务场景:  
 场景涉及订单管理、支付管理、买家资金管理、商家资金管理、积分管理  
-导出所有交易记录ID添加到Jmeter中，开始测试  
+导出所有交易记录ID添加到Jmeter中，测试总量3W条  
+![jmeter_pay_setting](project-information/jmeter_pay_setting.png)
+50线程
+![jmeter_pay_result](project-information/jmeter_pay_result.png)  
 
