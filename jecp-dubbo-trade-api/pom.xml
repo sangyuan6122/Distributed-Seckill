@@ -27,6 +27,11 @@
 			<groupId>com.jecp</groupId>
 		  	<artifactId>jecp-dubbo-capital-point-api</artifactId>
 		  	<version>${jecp.dubbo.point.version}</version>			
+		</dependency>
+		<dependency>
+			<groupId>com.jecp</groupId>
+		  	<artifactId>jecp-dubbo-shop-order-api</artifactId>
+		  	<version>${jecp.dubbo.shop.order.version}</version>			
 		</dependency>	
   		<dependency>
 			<groupId>com.jecp</groupId>

@@ -18,6 +18,8 @@ import com.jecp.base.result.BaseCodeMsgEnum;
 import com.jecp.base.result.CodeMsg;
 import com.jecp.message.api.ReliableMessageApi;
 import com.jecp.message.dto.ReliableMessageInputDTO;
+import com.jecp.shop.order.api.ShopOrderApi;
+import com.jecp.shop.order.enums.ShopOrderStatusEnum;
 import com.jecp.trade.record.api.TradeRecordApi;
 import com.jecp.trade.record.dto.TradeRecordInputDTO;
 import com.jecp.trade.record.dto.TradeRecordListDTO;
@@ -42,7 +44,8 @@ public class TradeRecordApiImpl implements TradeRecordApi {
 	private TradeRecordHisServiceImpl tradeRecordHisService;
 	@Autowired
 	private ReliableMessageApi reliableMessageApi;
-
+	@Autowired
+	private ShopOrderApi shopOrderApi;
 	@Override
 	@Compensable(confirmMethod = "confirmCreate", cancelMethod = "cancelCreate", transactionContextEditor = DubboTransactionContextEditor.class,asyncConfirm=true,asyncCancel=true)	
 	public void createTradeRecord(TradeRecordInputDTO tradeRecordInputDTO) {		
@@ -78,7 +81,7 @@ public class TradeRecordApiImpl implements TradeRecordApi {
 		ReliableMessageInputDTO pointMessageInputDTO = tradeRecordService.buildPointMessageDTO(tradeRecord);
 		reliableMessageApi.prestore(pointMessageInputDTO);
 
-//		/* 执行Tcc转账交易 */
+		/* 执行Tcc转账交易 */
 		try {
 			tradeRecordService.buyerTransferPayment(tradeRecord);			
 		} catch (ConfirmingException confirmingException) {			
@@ -88,6 +91,8 @@ public class TradeRecordApiImpl implements TradeRecordApi {
 			throw TradeRecordBizException.PAY_ERROR;
 		}
 		reliableMessageApi.messageConfirm(pointMessageInputDTO.getMessageKey());
+		/*后续改为最大努力通知*/
+		shopOrderApi.updateStatus(gtid, ShopOrderStatusEnum.COMPLETED);
 		return BaseCodeMsgEnum.SUCCESS;
 	}
 

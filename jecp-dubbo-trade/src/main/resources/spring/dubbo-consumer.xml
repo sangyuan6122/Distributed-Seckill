@@ -18,4 +18,8 @@
 	<dubbo:reference interface="com.jecp.message.api.ReliableMessageApi" registry="tradeZk" id="reliableMessageApi" check="false">
 		<dubbo:method name="messageConfirm" async="true" sent="false" return="false"/>
 	</dubbo:reference>
+	<!-- 订单服务接口 -->
+	<dubbo:reference interface="com.jecp.shop.order.api.ShopOrderApi" registry="tradeZk" id="shopOrderApi" check="false">
+		<dubbo:method name="updateStatus" async="true" sent="false" return="false"/>
+	</dubbo:reference>
 </beans>  
