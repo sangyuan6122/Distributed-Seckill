@@ -24,7 +24,7 @@ jecp
 |  ├── jecp-dubbo-capital-seller -- rpc卖家资金管理接口
 |  ├── jecp-dubbo-capital-point-api -- rpc用户积分管理服务提供者
 |  └── jecp-dubbo-capital-point -- rpc用户积分管理接口
-└── jecp-dubbo-shop-web -- Web前台相关
+└── jecp-dubbo-shop-web -- Web前台及系统基础后台相关
 ```
 ## 技术选型
 技术 | 名称 | 官网
