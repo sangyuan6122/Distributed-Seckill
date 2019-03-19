@@ -126,9 +126,12 @@ echo 1 > /proc/sys/net/ipv4/tcp_tw_recycle(快速回收socket资源，  默认�
 使用分布式锁策略，测试结果:  
 ![optimistic](project-information/distributed_10000_200_50.png)  
 秒杀商品合计31000件，检查订单数量、支付记录数量是否相等，跟商品销售量匹配  
-![seckill_over](project-information/seckill_over.jpg)  
+![seckill_over](project-information/seckill_over.jpg) 
+商品剩余量全为0，即卖出合计31000件  
 ![trade_record](project-information/trade_record.png)  
+支付记录总量31000条    
 ![order](project-information/order.png)  
+订单总量31000条  
 总结:订单数量、支付记录数量相等并与商品销售量匹配，200线程并发下分布式秒杀场景吞吐量>3400，秒杀场景三种策略中队列策略性能最好，由于秒杀场景生产订单是异步，测试数据中不能充分体验分布式事务性能，接下来便测试分布式事务。  
 ##### 分布式事务场景:  
 场景涉及订单管理、支付管理、买家资金管理、商家资金管理、积分管理
