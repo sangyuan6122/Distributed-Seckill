@@ -1,0 +1,1 @@
+tcc.sql、trade.sql、web.sql可用一套库，其余均需在对应库中运行。
