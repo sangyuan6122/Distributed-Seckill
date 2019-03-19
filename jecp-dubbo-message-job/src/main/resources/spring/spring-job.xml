@@ -1,0 +1,66 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	<!-- 线程池 -->
+	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<!-- 线程池维护线程的最少数量 -->
+		<property name="corePoolSize" value="10" />
+		<!-- 允许的空闲时间,当超过了核心线程出之外的线程在空闲时间到达之后会被销毁 -->
+		<property name="keepAliveSeconds" value="60" />
+		<!-- 线程池维护线程的最大数量 -->
+		<property name="maxPoolSize" value="100" />
+		<!-- 缓存队列 -->
+		<property name="queueCapacity" value="500" />
+		<!-- 对拒绝task的处理策略 -->
+		<property name="rejectedExecutionHandler">
+			<bean class="java.util.concurrent.ThreadPoolExecutor$CallerRunsPolicy" />
+		</property>
+	</bean>
+	<bean id="messageCheckProducerJob" class="com.jecp.message.scheduler.job.MessageCheckProducerJob" />
+	<bean id="messageReSendJob" class="com.jecp.message.scheduler.job.MessageReSendJob" />
+
+	<bean id="checkProducerJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="messageCheckProducerJob" />
+		<property name="targetMethod" value="checkProducerTransactionState" />
+		<!-- 如果前一个任务还没有结束第二个任务不会启动 false -->
+        <property name="concurrent" value="false" />
+	</bean>
+	<bean id="checkProducerCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="checkProducerJobDetail" />
+		<property name="cronExpression" value="*/10 * * * * ?" />
+	</bean>
+	<bean id="messageReSendJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="messageReSendJob" />
+		<property name="targetMethod" value="reSend" />
+		<!-- 如果前一个任务还没有结束第二个任务不会启动 false -->
+        <property name="concurrent" value="false" />
+	</bean>
+	<bean id="messageReSendCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="messageReSendJobDetail" />
+		<property name="cronExpression" value="*/15 * * * * ?" />
+	</bean>
+		
+	<!-- 设置调度 -->	
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean"  lazy-init="false">
+	    <property name="triggers">
+	        <list>
+	            <ref bean="checkProducerCronTrigger" />
+	            <ref bean="messageReSendCronTrigger" />
+	        </list>
+	    </property>
+	    <property name="taskExecutor" ref="taskExecutor" />
+	</bean>	
+</beans>

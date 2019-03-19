@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="com.jecp.capital.seller.model.CapitalAccount" optimistic-lock="version" polymorphism="implicit" schema="JECP" select-before-update="false" table="CAPITAL_ACCOUNT">
+        <id name="id" type="string">
+            <column length="32" name="ID"/>
+            <generator class="uuid.hex" />
+        </id>
+        <property generated="never" lazy="false" name="userId" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="USER_ID">
+                <comment>用户ID</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="accountType" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="ACCOUNT_TYPE">
+                <comment>账户类型(1:买家 2:商户)</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="balance" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="BALANCE" precision="18">
+                <comment>可用余额</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="balanceFrozen" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="BALANCE_FROZEN" precision="18">
+                <comment>冻结余额</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="createTime" optimistic-lock="true" type="java.sql.Timestamp" unique="false">
+            <column length="7" name="CREATE_TIME">
+                <comment>创建时间</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="updateDate" optimistic-lock="true" type="java.sql.Timestamp" unique="false">
+            <column length="7" name="UPDATE_DATE">
+                <comment>修改时间</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

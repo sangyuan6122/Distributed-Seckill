@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:amq="http://activemq.apache.org/schema/core"
+	xmlns:jms="http://www.springframework.org/schema/jms"
+	xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd  
+	http://cxf.apache.org/jaxws
+	http://cxf.apache.org/schemas/jaxws.xsd 
+	http://www.springframework.org/schema/jms
+    http://www.springframework.org/schema/jms/spring-jms.xsd  
+    http://www.springframework.org/schema/rabbit  
+    http://www.springframework.org/schema/rabbit/spring-rabbit.xsd                                                           " 
+	xmlns:tx="http://www.springframework.org/schema/tx">
+
+	<bean id="rabbitConnectionFactory" class="org.springframework.amqp.rabbit.connection.CachingConnectionFactory">		
+		<property name="host" value="${rabbitmq.host}" />
+		<property name="username" value="${rabbitmq.username}" />
+		<property name="password" value="${rabbitmq.password}" />
+		<property name="port" value="${rabbitmq.port}" />
+		<property name="virtualHost" value="${rabbitmq.virtualHost}" />
+		<!-- 缓存模式   CONNECTION CHANNEL，默认的缓存模式是CHANNEL--> 
+		<property name="cacheMode" value="${rabbitmq.cacheMode}" /> 
+		<property name="channelCacheSize" value="${rabbitmq.channelCacheSize}"/>
+		<!-- channelCheckoutTimeout属性.当此属性的值大于0时,channelCacheSize会变成连接上创建通道数目的限制. -->
+		<property name="channelCheckoutTimeout" value="${rabbitmq.channelCheckoutTimeout}"/>
+	</bean>    
+	<!-- 创建rabbitAdmin 代理类 -->  
+	<bean id="rabbitAdmin"  class="org.springframework.amqp.rabbit.core.RabbitAdmin">    
+        <constructor-arg ref="rabbitConnectionFactory" />    
+    </bean>
+         
+	<!--<rabbit:queue id="datamonQueue" name="datamonQueue" durable="true" auto-delete="false" exclusive="false" />
+	<rabbit:direct-exchange name="jecpExchange"  
+        durable="true" auto-delete="false">  
+        <rabbit:bindings>  
+            <rabbit:binding queue="datamonQueue" key="datamon" />  
+        </rabbit:bindings>  
+    </rabbit:direct-exchange>-->
+    
+    <bean id="msgCallback" class="com.jecp.mq.impl.MsgCallbackImpl"/> 
+   	<!-- spring template声明-->	
+   	<bean id="fastJsonMessageConverter" class="com.jecp.mq.util.FastJsonMessageConverter"></bean>
+   	<!-- 创建消息转换器为SimpleMessageConverter -->    
+    <bean id="simpleMessageConverter"  class="org.springframework.amqp.support.converter.SimpleMessageConverter"></bean> 
+	<bean id="rabbitTemplate"  class="org.springframework.amqp.rabbit.core.RabbitTemplate">    
+        <constructor-arg name="connectionFactory" ref="rabbitConnectionFactory"/>  
+        <property name="messageConverter" ref="simpleMessageConverter"/>
+        <!--<property name="exchange" value="jecpExchange"/>          
+        <property name="routingKey" value="datamon"/> --> 
+    </bean> 
+
+</beans>

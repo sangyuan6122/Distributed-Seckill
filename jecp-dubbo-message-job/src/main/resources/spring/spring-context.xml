@@ -1,0 +1,75 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<!-- 自动扫描 -->
+	<context:component-scan base-package="com.*jecp">
+		<!-- 扫描时跳过 @Controller 注解的JAVA类（控制器） -->
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	<!--<context:annotation-config/> -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.Oracle10gDialect
+				</prop>
+				<prop key="hibernate.show_sql">
+					true
+				</prop>
+				<prop key="javax.persistence.validation.mode">none</prop><!-- 解决启动报错 -->
+				<prop key="hibernate.connection.release_mode">after_statement</prop>
+			</props>
+		</property>
+		<property name="mappingLocations">
+			<list>
+				<value>classpath*:com/jecp/**/model/*.hbm.xml</value><!--必须为classpath* -->
+			</list>
+		</property>
+	</bean>
+	<!-- 事务管理器配置, Hibernate单数据源事务 -->
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 使用annotation定义事务 -->
+	<tx:annotation-driven transaction-manager="txManager" />
+	
+	<!-- 读取资源配置文件 -->
+	<!-- 引入配置文件 -->
+	<bean id="propertyConfigurer"
+		  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:jecp-redis.properties</value>
+				<value>classpath:jecp-source.properties</value>
+				<value>dubbo-message-scheduler.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- proxy-target-class默认"false",更改为"ture"使用CGLib动态代理 
+	<aop:aspectj-autoproxy proxy-target-class="true" />	-->
+	<!-- 引入其它spring配置文件 -->
+	<import resource="classpath:spring/spring-resource.xml" />
+	<import resource="classpath:spring/spring-common-core.xml" />	
+	<import resource="classpath:spring/dubbo-consumer.xml" />
+	<import resource="classpath:spring/spring-job.xml" />
+</beans>
