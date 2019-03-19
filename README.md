@@ -140,12 +140,13 @@ echo 1 > /proc/sys/net/ipv4/tcp_tw_recycle(快速回收socket资源，  默认�
 场景涉及订单管理、支付管理、买家资金管理、商家资金管理、可靠消息服务、积分管理，测试内容:  
 1)导出所有交易记录ID添加到Jmeter中，测试总量3W条，测试买家资金扣减、商家资金增加、可靠消息数量、积分增加是否相等，支付记录、订单状态是否更改；    
 2)测试分布式事务性能；
-订单统计:  
-支付记录统计:  
-买家资金统计:  
-商家资金统计:  
-可靠消息统计:  
-积分统计:  
+订单库统计:  
+`select count(*) from trade_record where status='PAY_SUCCESS'`  
+支付记录库统计:  
+买家资金库统计:  
+商家资金库统计:  
+可靠消息库统计:  
+积分库统计:  
 
 ![jmeter_pay_setting](project-information/jmeter_pay_setting.png)
 50线程
