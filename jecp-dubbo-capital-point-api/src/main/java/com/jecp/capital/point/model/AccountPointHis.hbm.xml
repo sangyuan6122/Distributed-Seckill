@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="com.jecp.capital.point.model.AccountPointHis" optimistic-lock="version" polymorphism="implicit" schema="JECP" select-before-update="false" table="ACCOUNT_POINT_HIS">
+        <comment>账户积分</comment>
+        <id name="id" type="string">
+            <column length="32" name="ID"/>
+            <generator class="uuid.hex" />
+        </id>
+        <property generated="never" lazy="false" name="userId" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="USER_ID">
+                <comment>账户ID</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="accountType" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="ACCOUNT_TYPE">
+                <comment>账户类型</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="tradeAmount" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="TRADE_AMOUNT" precision="18">
+                <comment>交易金额</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="tradeType" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="TRADE_TYPE">
+                <comment>交易类型(扣款，加款)</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="gtid" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="GTID" precision="18" scale="0">
+                <comment>全局订单号</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="createTime" optimistic-lock="true" type="java.sql.Timestamp" unique="false">
+            <column length="7" name="CREATE_TIME">
+                <comment>创建时间</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="updateTime" optimistic-lock="true" type="java.sql.Timestamp" unique="false">
+            <column length="7" name="UPDATE_TIME">
+                <comment>更新时间</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

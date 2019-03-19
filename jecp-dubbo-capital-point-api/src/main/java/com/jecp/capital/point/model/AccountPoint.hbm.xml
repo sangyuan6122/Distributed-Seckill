@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="com.jecp.capital.point.model.AccountPoint" optimistic-lock="version" polymorphism="implicit" schema="JECP" select-before-update="false" table="ACCOUNT_POINT">
+        <id name="id" type="string">
+            <column length="32" name="ID"/>
+            <generator class="uuid.hex" />
+        </id>
+        <property generated="never" lazy="false" name="userId" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="USER_ID" unique="true">
+                <comment>账户ID</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="accountType" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="ACCOUNT_TYPE">
+                <comment>账户类型</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="totalPoints" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="TOTAL_POINTS" precision="18" scale="0">
+                <comment>积分总量</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="createTime" optimistic-lock="true" type="java.sql.Timestamp" unique="false">
+            <column length="7" name="CREATE_TIME">
+                <comment>创建时间</comment>
+            </column>
+        </property>
+        <property generated="never" lazy="false" name="updateTime" optimistic-lock="true" type="java.sql.Timestamp" unique="false">
+            <column length="7" name="UPDATE_TIME">
+                <comment>更新时间</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>
