@@ -32,7 +32,7 @@ jecp
 Spring Framework | 容器  | [http://projects.spring.io/spring-framework/](http://projects.spring.io/spring-framework/)
 SpringMVC | MVC框架  | [http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#mvc](http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#mvc)
 Hibernate | ORM框架  | [http://www.mybatis.org/mybatis-3/zh/index.html](http://www.mybatis.org/mybatis-3/zh/index.html)
-Hibernate validation | 校验框架  | [http://hibernate.org/validator/](http://hibernate.org/validator/)
+Hibernate validation | 校验框架  | [http://hibernate.org/validator/](http://hibernate.org/validator/) 
 Druid | 数据库连接池  | [https://github.com/alibaba/druid](https://github.com/alibaba/druid)
 ZooKeeper | 分布式协调服务  | [http://zookeeper.apache.org/](http://zookeeper.apache.org/)
 Dubbo | 分布式服务框架  | [http://dubbo.io/](http://dubbo.io/)
