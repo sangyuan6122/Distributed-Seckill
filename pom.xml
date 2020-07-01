@@ -23,7 +23,7 @@
 		<druid.version>1.1.5</druid.version>
 		<redis.clients.version>2.9.0</redis.clients.version>	
 		<!-- quartz -->
-		<quartz.version>2.2.3</quartz.version>
+		<quartz.version>2.3.2</quartz.version>
 		<quartz-jobs.version>2.2.3</quartz-jobs.version>
 		<c3p0.version>0.9.1.1</c3p0.version>
 		<!-- dubbo -->
