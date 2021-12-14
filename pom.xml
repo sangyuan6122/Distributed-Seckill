@@ -38,7 +38,7 @@
 		<poi.version>3.12</poi.version>
 		<junit.version>4.12</junit.version>
 		<fastjson.version>1.2.40</fastjson.version>
-		<log4j-core.version>2.6.2</log4j-core.version>
+		<log4j-core.version>2.16.0</log4j-core.version>
 		<log4j-api.version>2.6.2</log4j-api.version>
 		<log4j-web.version>2.6.2</log4j-web.version>
 		<quartz.version>2.2.3</quartz.version>
