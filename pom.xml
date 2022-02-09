@@ -11,7 +11,7 @@
 	  	<javax-servlet.version>3.1.0</javax-servlet.version>	
 	  	<javaee-api.version>8.0</javaee-api.version>  	
 	  	<!-- hibernate -->
-	  	<hibernate.version>5.2.12.Final</hibernate.version>
+	  	<hibernate.version>5.4.24.Final</hibernate.version>
 	  	<!-- validator -->
 	  	<hibernate-validator.version>6.0.7.Final</hibernate-validator.version>	
 	  	<javax.el-api.version>3.0.0</javax.el-api.version>
