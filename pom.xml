@@ -17,7 +17,7 @@
 	  	<javax.el-api.version>3.0.0</javax.el-api.version>
 	  	<javax.el.version>3.0.1-b08</javax.el.version>		
 	  	<!-- spring -->
-	  	<spring.version>5.0.1.RELEASE</spring.version>
+	  	<spring.version>5.3.18</spring.version>
 		<spring-data-redis.version>2.0.1.RELEASE</spring-data-redis.version>
 		<!-- database -->
 		<druid.version>1.1.5</druid.version>
