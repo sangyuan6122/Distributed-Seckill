@@ -27,7 +27,7 @@
 		<quartz-jobs.version>2.2.3</quartz-jobs.version>
 		<c3p0.version>0.9.1.1</c3p0.version>
 		<!-- dubbo -->
-		<alibaba.dubbo.version>2.6.2</alibaba.dubbo.version>
+		<alibaba.dubbo.version>2.6.12</alibaba.dubbo.version>
 		<zookeeper.version>3.4.12</zookeeper.version>
 		<zkclient.version>0.1</zkclient.version>
 		<curator-recipes.version>4.0.1</curator-recipes.version>
