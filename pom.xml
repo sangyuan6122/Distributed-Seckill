@@ -35,7 +35,7 @@
 		<json-lib.version>2.1</json-lib.version>
 		<aspectjweaver.version>1.9.1</aspectjweaver.version>	
 		<commons-net.version>3.6</commons-net.version>
-		<poi.version>3.12</poi.version>
+		<poi.version>4.1.1</poi.version>
 		<junit.version>4.12</junit.version>
 		<fastjson.version>1.2.40</fastjson.version>
 		<log4j-core.version>2.6.2</log4j-core.version>
